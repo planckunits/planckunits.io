@@ -1,7 +1,5 @@
 // @flow
 import React from 'react'
-import NoSSR from 'react-no-ssr'
-import Loading from '../components/Loading'
 import Layout from '../components/Layout'
 
 const Index = () => (
@@ -10,14 +8,6 @@ const Index = () => (
       <section>
         <h1>This section is server-side rendered.</h1>
       </section>
-
-      <NoSSR onSSR={<Loading />}>
-        <section>
-          <h2>
-            This section is <em>only</em> client-side rendered.
-          </h2>
-        </section>
-      </NoSSR>
 
       <style jsx>{`
         section {
