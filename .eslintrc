@@ -1,0 +1,10 @@
+{
+  "extends": "precure",
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "class-methods-use-this": 0,
+    "react/prefer-stateless-function": 0
+  }
+}
