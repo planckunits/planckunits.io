@@ -15,11 +15,13 @@ const Layout = ({ children, name = 'Section' }: Props) => (
 
     <style jsx>{`
       h2 {
-        align-text: center;
+        text-align: center;
+        font-size: 33px;
       }
       section {
         width: 600px;
-        margin: 0 auto;
+        margin: 50px auto;
+        font-size: 18px;
       }
     `}</style>
   </div>
