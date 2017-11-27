@@ -13,7 +13,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "prettier": "prettier --config ./.prettierrc --write '**/*.js'",

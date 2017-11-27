@@ -1,6 +1,6 @@
 // @flow
+const stage = process.env.UP_STAGE
+
 module.exports = {
-  exportPathMap() {
-    return { '/': { page: '/' } }
-  },
+  assetPrefix: stage ? `/${stage}` : ''
 }
