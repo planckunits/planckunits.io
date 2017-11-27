@@ -44,6 +44,24 @@ const Layout = ({ name = 'Section' }: Props) => (
         </tr>
       </tbody>
     </table>
+    <style jsx>{`
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        padding: 20px 5px;
+        text-align: left;
+        border-bottom: solid 1px black;
+        font-weight: normal;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    `}</style>
   </Section>
 )
 
