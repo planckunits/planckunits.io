@@ -3,6 +3,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Header from './Header'
+import Footer from './Footer'
 
 type Props = { children?: any, title?: string }
 
@@ -25,7 +26,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
 
     {children}
 
-    <footer>&copy; {'2017 PlanckUnits co.,ltd'}</footer>
+    <Footer />
   </div>
 )
 
