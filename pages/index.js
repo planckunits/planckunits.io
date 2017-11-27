@@ -4,6 +4,8 @@ import Layout from '../components/Layout'
 import EyeCatch from '../components/EyeCatch'
 import MissionsSection from '../components/MissionSection'
 import AboutSection from '../components/AboutSection'
+import MemberSection from '../components/MemberSection'
+import ContactSection from '../components/ContactSection'
 
 const Index = () => (
   <Layout>
@@ -11,6 +13,8 @@ const Index = () => (
       <EyeCatch />
       <MissionsSection />
       <AboutSection />
+      <MemberSection />
+      <ContactSection />
     </main>
   </Layout>
 )
