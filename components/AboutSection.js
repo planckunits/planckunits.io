@@ -1,6 +1,5 @@
 // @flow
 
-import React from 'react'
 import Section from './Section'
 
 type Props = { name?: string }
@@ -12,6 +11,14 @@ const Layout = ({ name = 'Section' }: Props) => (
         <tr>
           <th>社名</th>
           <td>株式会社PlanckUnits(プランクユニッツ)</td>
+        </tr>
+        <tr>
+          <th>代表取締役</th>
+          <td>野中 直樹</td>
+        </tr>
+        <tr>
+          <th>設立</th>
+          <td>2017年11月</td>
         </tr>
         <tr>
           <th>オフィス</th>
@@ -28,12 +35,8 @@ const Layout = ({ name = 'Section' }: Props) => (
           </td>
         </tr>
         <tr>
-          <th>代表取締役</th>
-          <td>野中 直樹</td>
-        </tr>
-        <tr>
           <th>資本金</th>
-          <td>7,500,000</td>
+          <td>7,500,000円</td>
         </tr>
         <tr>
           <th>従業員数</th>

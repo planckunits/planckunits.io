@@ -1,12 +1,14 @@
 // @flow
 import React from 'react'
 import Layout from '../components/Layout'
-import AboutSection from '../components/AboutSection'
+import EyeCatch from '../components/EyeCatch'
 import MissionsSection from '../components/MissionSection'
+import AboutSection from '../components/AboutSection'
 
 const Index = () => (
   <Layout>
     <main>
+      <EyeCatch />
       <MissionsSection />
       <AboutSection />
     </main>
