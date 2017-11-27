@@ -4,7 +4,7 @@ import React from 'react'
 import Head from 'next/head'
 import Header from './Header'
 
-type Props = { children?: React.Element<*>, title?: string }
+type Props = { children?: any, title?: string }
 
 const Layout = ({ children, title = 'This is the default title' }: Props) => (
   <div>
@@ -25,7 +25,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
 
     {children}
 
-    <footer>{'I`m here to stay'}</footer>
+    <footer>&copy; {'2017 PlanckUnits co.,ltd'}</footer>
   </div>
 )
 
