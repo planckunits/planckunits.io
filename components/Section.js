@@ -1,7 +1,5 @@
 // @flow
 
-import React, { Children } from 'react'
-
 type Props = { children?: any, name?: string }
 
 const Layout = ({ children, name = 'Section' }: Props) => (

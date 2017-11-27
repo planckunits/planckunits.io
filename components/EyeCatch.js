@@ -1,3 +1,5 @@
+// @flow
+
 const EyeCatch = () => (
   <section>
     <div className="image-wrap">

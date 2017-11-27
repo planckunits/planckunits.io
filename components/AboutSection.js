@@ -10,7 +10,7 @@ const Layout = ({ name = 'Section' }: Props) => (
       <tbody>
         <tr>
           <th>社名</th>
-          <td>株式会社PlanckUnits(プランクユニッツ)</td>
+          <td>株式会社 PlanckUnits (プランクユニッツ)</td>
         </tr>
         <tr>
           <th>代表取締役</th>

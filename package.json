@@ -34,8 +34,7 @@
     "react-dom": "^16.1.1",
     "react-event-listener": "^0.5.1",
     "react-ga": "^2.2.0",
-    "react-no-ssr": "^1.1.0",
-    "react-youtube": "^7.4.0"
+    "react-no-ssr": "^1.1.0"
   },
   "devDependencies": {
     "babel-jest": "^21.2.0",

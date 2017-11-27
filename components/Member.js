@@ -1,3 +1,5 @@
+// @flow
+
 type Props = { name: string, image: string }
 const Member = ({ name, image }: Props) => (
   <div>

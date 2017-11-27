@@ -1,6 +1,5 @@
 // @flow
 
-import React from 'react'
 import Section from './Section'
 
 type Props = { name?: string }
