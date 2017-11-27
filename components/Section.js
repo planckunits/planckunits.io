@@ -19,8 +19,8 @@ const Layout = ({ children, name = 'Section' }: Props) => (
         font-size: 33px;
       }
       section {
-        width: 600px;
-        margin: 50px auto;
+        width: 800px;
+        margin: 100px auto;
         font-size: 18px;
       }
     `}</style>
