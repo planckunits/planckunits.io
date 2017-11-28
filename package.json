@@ -22,8 +22,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "gh-pages": "gh-pages -d out --dotfiles",
-    "predeploy": "next export && touch out/.nojekyll",
-    "deploy": "npm run predeploy && npm run gh-pages"
+    "predeploy": "next export"
   },
   "dependencies": {
     "next": "^4.1.4",
