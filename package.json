@@ -4,6 +4,7 @@
   "description": "PlanckUnits HomePage",
   "license": "MIT",
   "repository": "planckunits/planckunits.io",
+  "homepage": "https://planckunits.github.io/",
   "author": {
     "name": "elzup",
     "email": "guild0105@gmail.com",
@@ -17,15 +18,12 @@
     "build": "next build",
     "start": "next start",
     "prettier": "prettier --config ./.prettierrc --write '**/*.js'",
-    "lint": "eslint .",
     "flow": "flow",
     "test": "jest",
     "test:watch": "jest --watch",
-    "preexport": "npm run build",
-    "export": "next export",
-    "gh-pages": "gh-pages -d out -x",
-    "predeploy": "npm run export",
-    "deploy": "./bin/deploy.sh"
+    "gh-pages": "gh-pages -d out --dotfiles",
+    "predeploy": "next export && touch out/.nojekyll",
+    "deploy": "npm run predeploy && npm run gh-pages"
   },
   "dependencies": {
     "next": "^4.1.4",
