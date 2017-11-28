@@ -61,6 +61,11 @@ const Layout = ({ name = 'Section' }: Props) => (
         margin: 0;
         padding: 0;
       }
+      @media (max-width: 600px) {
+        th {
+          width: 95px;
+        }
+      }
     `}</style>
   </Section>
 )

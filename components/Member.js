@@ -23,6 +23,14 @@ const Member = ({ name, image, role, url }: Props) => (
         margin: 0 auto;
       }
 
+      h3 {
+        margin-bottom: 0;
+      }
+      p {
+        padding: 0;
+        margin-top: 0;
+      }
+
       img {
         width: 100%;
         border-radius: 50%;
@@ -30,6 +38,13 @@ const Member = ({ name, image, role, url }: Props) => (
       .member {
         width: 250px;
         text-align: center;
+        margin-bottom: 30px;
+      }
+
+      @media (max-width: 600px) {
+        .member {
+          margin: 0 auto;
+        }
       }
     `}</style>
   </div>

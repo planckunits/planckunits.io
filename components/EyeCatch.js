@@ -26,6 +26,15 @@ const EyeCatch = () => (
         height: 600px;
         margin: 0 auto;
       }
+      @media (max-width: 600px) {
+        p {
+          padding: 100px 30px;
+        }
+        img {
+          width: 100%;
+          height: 300px;
+        }
+      }
     `}</style>
   </section>
 )
