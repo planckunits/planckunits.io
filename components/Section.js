@@ -21,6 +21,12 @@ const Layout = ({ children, name = 'Section' }: Props) => (
         margin: 100px auto;
         font-size: 18px;
       }
+      @media (max-width: 600px) {
+        section {
+          width: 92%;
+          padding: 0 4%;
+        }
+      }
     `}</style>
   </div>
 )

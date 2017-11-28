@@ -33,6 +33,11 @@ const Layout = ({ name = 'Section' }: Props) => (
         display: flex;
         justify-content: space-around;
       }
+      @media (max-width: 600px) {
+        .members {
+          flex-direction: column;
+        }
+      }
     `}</style>
   </Section>
 )
