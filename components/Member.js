@@ -1,15 +1,22 @@
 // @flow
 
-type Props = { name: string, image: string }
-const Member = ({ name, image }: Props) => (
+type Props = { name: string, image: string, role: string, url: string }
+const Member = ({ name, image, role, url }: Props) => (
   <div>
     <div className="member">
       <div className="image-wrap">
         <img src={image} alt={`プランクユニッツ ${name}`} />
       </div>
-      <h3>{name}</h3>
+      <h3>
+        <a href={url}>{name}</a>
+      </h3>
+      <p>{role}</p>
     </div>
     <style jsx>{`
+      a {
+        color: black;
+        text-decoration: none;
+      }
       .image-wrap {
         width: 200px;
         height: 200px;
@@ -22,9 +29,6 @@ const Member = ({ name, image }: Props) => (
       }
       .member {
         width: 250px;
-      }
-
-      h3 {
         text-align: center;
       }
     `}</style>
