@@ -2,7 +2,21 @@
   "name": "planckunits-io",
   "profile": "myapp",
   "regions": ["ap-northeast-1"],
+  "type": "static",
+  "static": {
+    "dir": "out"
+  },
   "lambda": {
     "memory": 1536
+  },
+  "redirects": {
+    "/*": {
+      "location": "/",
+      "status": 200
+    }
+  },
+  "hooks": {
+    "build": "npm run predeploy",
+    "clean": "rm -fr out"
   }
 }
