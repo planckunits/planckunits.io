@@ -20,12 +20,6 @@ const Layout = ({ name = 'Section' }: Props) => (
         role="取締役・CTO"
         url="https://elzup.com"
       />
-      <Member
-        name="岩井 将行"
-        image="static/iwai.jpg"
-        role="取締役"
-        url="https://www.cps.im.dendai.ac.jp/index.php?Members%2Fiwai"
-      />
     </div>
 
     <style jsx>{`

@@ -26,10 +26,9 @@ const Layout = ({ name = 'Section' }: Props) => (
         <tr>
           <th>オフィス</th>
           <td>
-            〒120-0034 東京都足立区千住3-6ツォード千住壱番館<br />
-            2018年4月1日 東京電機大学創業支援施設「かけはし 」に移転予定 <br />
-            <a href={kakehashiUrl}>
+            <a href={kakehashiUrl} style={{ color: 'black' }}>
               〒120-0026 東京都足立区千住旭町３８−１
+              東京電機大学東京千住アネックス創業支援施設かけはし 0415室
               創業支援施設かけはし足立区連携事業
             </a>
           </td>
