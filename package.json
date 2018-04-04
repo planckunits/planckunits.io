@@ -22,7 +22,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "deploy": "gh-pages -d out --dotfiles",
-    "predeploy": "next export"
+    "predeploy": "next export && echo 'planckunits.io' > ./out/CNAME"
   },
   "dependencies": {
     "next": "^5.0.0",
