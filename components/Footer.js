@@ -3,7 +3,7 @@
 const Footer = () => (
   <div>
     <footer>
-      <p className="contact">お問い合わせ: pu@cps.im.dendai.ac.jp</p>
+      <p className="contact">お問い合わせ: info@planckunits.com</p>
       <p className="copy">&copy; {'2017-2018 PlanckUnits co.,ltd'}</p>
     </footer>
     <style jsx>{`

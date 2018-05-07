@@ -65,6 +65,9 @@ const Layout = ({ name = 'Section' }: Props) => (
         border-bottom: solid 1px black;
         font-weight: normal;
       }
+      th {
+        width: 100px;
+      }
       ul {
         list-style: none;
         margin: 0;
