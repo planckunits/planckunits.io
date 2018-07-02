@@ -5,9 +5,9 @@ const Member = ({ name, role, url, description }: Props) => (
   <div className="root">
     <div className="work">
       <h3>{name}</h3>
-      <a href={url}>HomePage</a>
       <p>{role}</p>
       <p>{description}</p>
+      <a href={url}>more↗</a>
     </div>
     <style jsx>{`
       .root {
