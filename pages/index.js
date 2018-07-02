@@ -5,6 +5,7 @@ import EyeCatch from '../components/EyeCatch'
 import MissionsSection from '../components/MissionSection'
 import AboutSection from '../components/AboutSection'
 import MemberSection from '../components/MemberSection'
+import WorksSection from '../components/WorksSection'
 
 const Index = () => (
   <Layout>
@@ -13,6 +14,7 @@ const Index = () => (
       <MissionsSection />
       <AboutSection />
       <MemberSection />
+      <WorksSection />
     </main>
   </Layout>
 )

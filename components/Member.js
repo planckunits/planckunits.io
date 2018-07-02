@@ -1,26 +1,22 @@
 // @flow
 
-type Props = { name: string, image: string, role: string, url: string }
-const Member = ({ name, image, role, url }: Props) => (
-  <div>
-    <div className="member">
-      <div className="image-wrap">
-        <img src={image} alt={`プランクユニッツ ${name}`} />
-      </div>
-      <h3>
-        <a href={url}>{name}</a>
-      </h3>
+type Props = { name: string, description: string, role: string, url: string }
+const Member = ({ name, role, url, description }: Props) => (
+  <div className="root">
+    <div className="work">
+      <h3>{name}</h3>
+      <a href={url}>HomePage</a>
       <p>{role}</p>
+      <p>{description}</p>
     </div>
     <style jsx>{`
+      .root {
+        flex: 1;
+        padding: 5px;
+      }
       a {
         color: black;
         text-decoration: none;
-      }
-      .image-wrap {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
       }
 
       h3 {
@@ -31,10 +27,6 @@ const Member = ({ name, image, role, url }: Props) => (
         margin-top: 0;
       }
 
-      img {
-        width: 100%;
-        border-radius: 50%;
-      }
       .member {
         width: 250px;
         text-align: center;
