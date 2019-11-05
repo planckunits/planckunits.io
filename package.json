@@ -8,7 +8,7 @@
   "author": {
     "name": "elzup",
     "email": "guild0105@gmail.com",
-    "url": "elzup.com"
+    "url": "https://elzup.com"
   },
   "engines": {
     "node": ">=8"
@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
     "prettier": "prettier --config ./.prettierrc --write '**/*.js'",
     "flow": "flow",
