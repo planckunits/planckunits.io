@@ -14,7 +14,7 @@ const Layout = ({ name = 'Section' }: Props) => (
       <Member
         name="野中 直樹"
         role="代表取締役・CEO"
-        url="https://www.cps.im.dendai.ac.jp/index.php?Members%2Fnaoki"
+        url={null}
         description="IoT開発全般、Raspberry Pi、ESP32、ソラコムモジュール、 Arduino 互換機開発、
         制御システム全般、組み込み機器開発、3Dプリンティング、レーザーカッター、回路設計、デザイン"
       />

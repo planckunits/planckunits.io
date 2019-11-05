@@ -28,8 +28,7 @@ const Layout = ({ name = 'Section' }: Props) => (
           <td>
             <a href={kakehashiUrl} style={{ color: 'black' }}>
               〒120-0026 東京都足立区千住旭町３８−１
-              東京電機大学東京千住アネックス創業支援施設かけはし 0415室
-              創業支援施設かけはし足立区連携事業↗
+              東京電機大学東京千住アネックス創業支援施設かけはし 0415室↗
             </a>
           </td>
         </tr>
@@ -70,8 +69,9 @@ const Layout = ({ name = 'Section' }: Props) => (
           </td>
         </tr>
         <tr>
-          <th>主要銀行</th>
+          <th>取引銀行</th>
           <td>三菱UFJ銀行千住支店</td>
+          <td>足立成和信用金庫旭町支店</td>
         </tr>
       </tbody>
     </table>

@@ -7,7 +7,7 @@ const Member = ({ name, role, url, description }: Props) => (
       <h3>{name}</h3>
       <p>{role}</p>
       <p>{description}</p>
-      <a href={url}>more↗</a>
+      {url && <a href={url}>more↗</a>}
     </div>
     <style jsx>{`
       .root {
