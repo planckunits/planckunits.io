@@ -70,8 +70,12 @@ const Layout = ({ name = 'Section' }: Props) => (
         </tr>
         <tr>
           <th>取引銀行</th>
-          <td>三菱UFJ銀行千住支店</td>
-          <td>足立成和信用金庫旭町支店</td>
+          <td>
+            <ul>
+              <li>三菱UFJ銀行千住支店</li>
+              <li>足立成和信用金庫旭町支店</li>
+            </ul>
+          </td>
         </tr>
       </tbody>
     </table>
