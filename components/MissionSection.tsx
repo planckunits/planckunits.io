@@ -1,10 +1,6 @@
-// @flow
-
 import Section from './Section'
 
-type Props = { name?: string }
-
-const Layout = ({ name = 'Section' }: Props) => (
+const MissionSection = () => (
   <Section name="Missions">
     <p>
       1.
@@ -25,4 +21,4 @@ const Layout = ({ name = 'Section' }: Props) => (
   </Section>
 )
 
-export default Layout
+export default MissionSection

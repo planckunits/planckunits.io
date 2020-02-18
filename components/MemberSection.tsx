@@ -1,11 +1,9 @@
-// @flow
-
 import Section from './Section'
 import Member from './Member'
 
 type Props = { name?: string }
 
-const Layout = ({ name = 'Section' }: Props) => (
+const MemberSection = ({ name = 'Section' }: Props) => (
   <Section name="Members">
     <div className="image-wrap">
       <img src={'static/pu-member.jpg'} alt={`プランクユニッツ ${name}`} />
@@ -14,7 +12,7 @@ const Layout = ({ name = 'Section' }: Props) => (
       <Member
         name="野中 直樹"
         role="代表取締役・CEO"
-        url={null}
+        url={undefined}
         description="IoT開発全般、Raspberry Pi、ESP32、ソラコムモジュール、 Arduino 互換機開発、
         制御システム全般、組み込み機器開発、3Dプリンティング、レーザーカッター、回路設計、デザイン"
       />
@@ -47,4 +45,4 @@ const Layout = ({ name = 'Section' }: Props) => (
   </Section>
 )
 
-export default Layout
+export default MemberSection

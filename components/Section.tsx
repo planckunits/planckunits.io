@@ -1,8 +1,6 @@
-// @flow
+type Props = { name?: string }
 
-type Props = { children?: any, name?: string }
-
-const Layout = ({ children, name = 'Section' }: Props) => (
+const Section: React.FC<Props> = ({ children, name = 'Section' }) => (
   <div>
     <section>
       <div>
@@ -31,4 +29,4 @@ const Layout = ({ children, name = 'Section' }: Props) => (
   </div>
 )
 
-export default Layout
+export default Section

@@ -1,5 +1,3 @@
-// @flow
-
 const Loading = () => (
   <div>
     <h3>Loading...</h3>

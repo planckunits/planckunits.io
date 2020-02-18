@@ -1,5 +1,3 @@
-// @flow
-
 const EyeCatch = () => (
   <section>
     <div className="image-wrap">
@@ -38,4 +36,5 @@ const EyeCatch = () => (
     `}</style>
   </section>
 )
+
 export default EyeCatch

@@ -1,6 +1,3 @@
-// @flow
-
-import Link from 'next/link'
 import Logo from './Logo'
 
 const Header = () => (
@@ -37,4 +34,5 @@ const Header = () => (
     `}</style>
   </header>
 )
+
 export default Header

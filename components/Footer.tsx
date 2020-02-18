@@ -1,5 +1,3 @@
-// @flow
-
 const Footer = () => (
   <div>
     <footer>
@@ -19,4 +17,5 @@ const Footer = () => (
     `}</style>
   </div>
 )
+
 export default Footer

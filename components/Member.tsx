@@ -1,6 +1,4 @@
-// @flow
-
-type Props = { name: string, description: string, role: string, url: string }
+type Props = { name: string; description: string; role: string; url?: string }
 const Member = ({ name, role, url, description }: Props) => (
   <div className="root">
     <div className="work">
@@ -41,4 +39,5 @@ const Member = ({ name, role, url, description }: Props) => (
     `}</style>
   </div>
 )
+
 export default Member

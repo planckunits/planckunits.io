@@ -1,11 +1,6 @@
-// @flow
-
 import Section from './Section'
-import Member from './Member'
 
-type Props = { name?: string }
-
-const Layout = ({ name = 'Section' }: Props) => (
+const WorksSection = () => (
   <Section name="Works">
     <div>
       <ul>
@@ -33,4 +28,4 @@ const Layout = ({ name = 'Section' }: Props) => (
   </Section>
 )
 
-export default Layout
+export default WorksSection

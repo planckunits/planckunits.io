@@ -1,5 +1,3 @@
-// @flow
-
 const Logo = () => (
   <div>
     <img src="static/logo.svg" alt="株式会社プランクユニッツ" />
@@ -11,4 +9,5 @@ const Logo = () => (
     `}</style>
   </div>
 )
+
 export default Logo
