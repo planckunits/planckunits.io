@@ -22,7 +22,7 @@ const AwardsSection = ({}: Props) => (
     <div>
       <ul>
         {awards.map((award, i) => (
-          <li key={i}>
+          <li key={i} className="award">
             <p>{award.time}</p>
             <a href={award.link}>{award.title}</a>
             <p>{award.text}</p>
@@ -31,7 +31,16 @@ const AwardsSection = ({}: Props) => (
       </ul>
     </div>
 
-    <style jsx>{``}</style>
+    <style jsx>{`
+      ul {
+        padding-left: 4px;
+      }
+      .award {
+        list-style: none;
+        border-left: solid 2px black;
+        padding-left: 16px;
+      }
+    `}</style>
   </Section>
 )
 
