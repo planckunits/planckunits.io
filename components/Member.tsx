@@ -5,7 +5,7 @@ const Member = ({ name, role, url, description }: Props) => (
       <h3>{name}</h3>
       <p>{role}</p>
       <p>{description}</p>
-      {url && <a href={url}>more↗</a>}
+      {url && <a href={url}>more</a>}
     </div>
     <style jsx>{`
       .root {
@@ -13,7 +13,6 @@ const Member = ({ name, role, url, description }: Props) => (
         padding: 5px;
       }
       a {
-        color: black;
         text-decoration: none;
       }
 

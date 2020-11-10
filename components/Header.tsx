@@ -31,6 +31,12 @@ const Header = () => (
         margin: 0;
         font-family: 'Exo 2', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       }
+      a {
+        color: black;
+      }
+      a::after {
+        content: '↗';
+      }
     `}</style>
   </header>
 )

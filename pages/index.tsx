@@ -5,6 +5,7 @@ import MissionsSection from '../components/MissionSection'
 import AboutSection from '../components/AboutSection'
 import MemberSection from '../components/MemberSection'
 import WorksSection from '../components/WorksSection'
+import AwardsSection from '../components/AwardsSection'
 
 const Index: NextPage = () => (
   <Layout>
@@ -14,6 +15,7 @@ const Index: NextPage = () => (
       <AboutSection />
       <MemberSection />
       <WorksSection />
+      <AwardsSection />
     </main>
   </Layout>
 )
