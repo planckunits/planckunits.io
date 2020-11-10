@@ -24,6 +24,15 @@ const WorksSection = () => (
           flex-direction: column;
         }
       }
+      li {
+        background: url(static/hex.svg) left 0px top 7px no-repeat;
+        background-size: 0.8rem;
+        padding-left: 1.2rem;
+        list-style: none;
+      }
+      ul {
+        padding-left: 1rem;
+      }
     `}</style>
   </Section>
 )

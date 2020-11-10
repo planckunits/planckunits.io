@@ -26,7 +26,7 @@ const EyeCatch = () => (
       }
       @media (max-width: 600px) {
         p {
-          padding: 100px 30px;
+          padding: 40px 30px;
         }
         img {
           width: 100%;
