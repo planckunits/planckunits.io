@@ -1,7 +1,7 @@
 import Section from './Section'
 
-const kakehashiUrl =
-  'https://www.google.co.jp/maps/place/%E6%9D%B1%E4%BA%AC%E9%9B%BB%E6%A9%9F%E5%A4%A7%E5%AD%A6%E5%89%B5%E6%A5%AD%E6%94%AF%E6%8F%B4%E6%96%BD%E8%A8%AD%E3%80%8C%E3%81%8B%E3%81%91%E3%81%AF%E3%81%97%E3%80%8D/@35.7509605,139.8052767,17z/data=!3m1!4b1!4m5!3m4!1s0x60188e4e8a3aaaab:0x77965e31b66ea8c4!8m2!3d35.7509605!4d139.8074654?hl=ja-jp'
+const akatsukiUrl =
+  'https://www.google.co.jp/maps/place/%E5%89%B5%E6%A5%AD%E6%94%AF%E6%8F%B4%E6%96%BD%E8%A8%AD%E3%80%8C%E3%81%82%E3%81%8B%E3%81%A4%E3%81%8D%E3%80%8D/@35.7468485,139.8046201,16z/data=!4m8!1m2!2m1!1z44GC44GL44Gk44GN!3m4!1s0x0:0x4199ce092b95a3dd!8m2!3d35.7489634!4d139.8079669?hl=ja-jp'
 
 const AboutSection = () => (
   <Section name="About">
@@ -22,7 +22,7 @@ const AboutSection = () => (
         <tr>
           <th>オフィス</th>
           <td>
-            <a href={kakehashiUrl} style={{ color: 'black' }}>
+            <a href={akatsukiUrl} style={{ color: 'black' }}>
               〒120-0026 東京都足立区千住旭町11-7 足立成和信金あかつき401
             </a>
           </td>
