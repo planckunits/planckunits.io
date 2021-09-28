@@ -15,6 +15,12 @@ const awards = [
       'Vol.5 WEB INTERVIEW -活躍する在学生- 野中 直樹さん - 情報メディア学科 - 東京電機大学',
     link: 'https://www.im.dendai.ac.jp/student/05/',
   },
+  {
+    time: '2021年09月',
+    title:
+      '第6回産学公金交流会にて講演を行いました | 研究推進社会連携センター｜東京電機大学',
+    link: 'https://www.dendai.ac.jp/crc/tlo/news/20210922-01.html',
+  },
 ]
 
 const AwardsSection = ({}: Props) => (
