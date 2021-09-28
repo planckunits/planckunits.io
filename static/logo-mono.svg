@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="143px" height="125px" viewBox="0 0 143 125" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>logo-mono</title>
+    <desc>Created with Sketch.</desc>
+    <g id="logo-mono" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo-bw" transform="translate(-18.000000, -30.000000)" fill="#000000">
+            <g id="Group" transform="translate(89.500000, 92.500000) rotate(-30.000000) translate(-89.500000, -92.500000) translate(27.545644, 21.360442)">
+                <polygon id="Polygon" points="123.84135 35.5697791 123.84135 106.698949 61.9076682 142.263535"></polygon>
+                <polygon id="Polygon" points="61.9336817 0 123.867363 35.5645851 0 35.5645851"></polygon>
+                <polygon id="Triangle" points="61.9164605 35.5697791 31.0005216 88.9353775 92.8323994 88.9353775"></polygon>
+                <polygon id="Polygon" points="61.9336817 142.263535 9.63805336e-14 106.698949 5.68434189e-14 35.5697791"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
