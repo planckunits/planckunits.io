@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const Logo = () => (
   <div>
     <img src="static/logo.svg" alt="株式会社プランクユニッツ" />
