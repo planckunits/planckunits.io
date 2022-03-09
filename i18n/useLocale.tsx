@@ -1,10 +1,11 @@
-import { useLanguageQuery } from 'next-export-i18n'
+import { useRouter } from 'next/router'
 import en from './en'
 import ja from './ja'
 
 export const useLocale = () => {
-  const [query] = useLanguageQuery()
+  const router = useRouter()
+  const locale = router.asPath.includes('en') ? 'en' : 'ja'
 
-  const t = query?.lang === 'ja' ? ja : en
-  return { locale: query?.lang, t }
+  const t = { ja, en }[locale]
+  return { locale, t }
 }
