@@ -34,9 +34,6 @@ const Header = () => (
       a {
         color: black;
       }
-      a::after {
-        content: '↗';
-      }
     `}</style>
   </header>
 )

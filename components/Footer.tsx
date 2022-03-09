@@ -1,21 +1,49 @@
-const Footer = () => (
-  <div>
-    <footer>
-      <p className="contact">お問い合わせ: info@planckunits.com</p>
-      <p className="copy">&copy; {`2017-2020 PlanckUnits co.,ltd`}</p>
-    </footer>
-    <style jsx>{`
-      footer {
-        padding: 20px;
-      }
-      .contact {
-        text-align: center;
-      }
-      .copy {
-        text-align: right;
-      }
-    `}</style>
-  </div>
-)
+import Link from 'next/link'
+import { useLocale } from '../locales/useLocale'
+
+const Footer = () => {
+  const { locale } = useLocale()
+
+  return (
+    <div>
+      <footer>
+        <p className="contact">
+          お問い合わせ: <pre>info@planckunits.com</pre>
+        </p>
+        <div style={{ display: 'flex', gap: '4px' }}>
+          {locale === 'ja' ? (
+            <>
+              <span>ja</span>
+              <span>/</span>
+              <Link href="/" locale="en" passHref>
+                en
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/" locale="ja" passHref>
+                ja
+              </Link>
+              <span>/</span>
+              <span>en</span>
+            </>
+          )}
+        </div>
+        <p className="copy">&copy; {`2017-2022 PlanckUnits co.,ltd`}</p>
+      </footer>
+      <style jsx>{`
+        footer {
+          padding: 20px;
+        }
+        .contact {
+          text-align: center;
+        }
+        .copy {
+          text-align: right;
+        }
+      `}</style>
+    </div>
+  )
+}
 
 export default Footer

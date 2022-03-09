@@ -1,7 +1,6 @@
 import Section from './Section'
 
-const akatsukiUrl =
-  'https://www.google.co.jp/maps/place/%E5%89%B5%E6%A5%AD%E6%94%AF%E6%8F%B4%E6%96%BD%E8%A8%AD%E3%80%8C%E3%81%82%E3%81%8B%E3%81%A4%E3%81%8D%E3%80%8D/@35.7468485,139.8046201,16z/data=!4m8!1m2!2m1!1z44GC44GL44Gk44GN!3m4!1s0x0:0x4199ce092b95a3dd!8m2!3d35.7489634!4d139.8079669?hl=ja-jp'
+const officeUrl = 'https://www.google.com/maps?q=35.7478271,139.800753'
 
 const AboutSection = () => (
   <Section name="About">
@@ -22,8 +21,8 @@ const AboutSection = () => (
         <tr>
           <th>オフィス</th>
           <td>
-            <a href={akatsukiUrl} style={{ color: 'black' }}>
-              〒120-0026 東京都足立区千住旭町11-7 足立成和信金あかつき401
+            <a href={officeUrl} style={{ color: 'black' }}>
+              〒120-0026 東京都足立区千住旭町19-5
             </a>
           </td>
         </tr>
