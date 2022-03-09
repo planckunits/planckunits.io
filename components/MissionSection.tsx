@@ -1,24 +1,17 @@
 import Section from './Section'
+import { useLocale } from '../locales/useLocale'
 
-const MissionSection = () => (
-  <Section name="Missions">
-    <p>
-      1.
-      心と技術をこめたIoT技術、クラウド技術を通したモノづくりにより幸せと豊かさに貢献します。
-    </p>
-    <p>
-      2.
-      技術の先端に挑戦し、新しい価値を低コストで持続可能な安定基盤を創り出す独自の領域を利用者の切り拓き、真の利便性を追求します。
-    </p>
-    <p>
-      3.
-      事業の広がりを追求する人を大切にし、環境、地域、人との調和を大切にします。
-    </p>
-    <p>
-      4.
-      ワクワクするもの、安心安全なものを作り出すことに常に挑戦し、多くの世代に夢を与えます。
-    </p>
-  </Section>
-)
+const MissionSection = () => {
+  const { t } = useLocale()
+
+  return (
+    <Section name="Missions">
+      <p>1. {t.mission1}</p>
+      <p>2. {t.mission2}</p>
+      <p>3. {t.mission3}</p>
+      <p>4. {t.mission4}</p>
+    </Section>
+  )
+}
 
 export default MissionSection

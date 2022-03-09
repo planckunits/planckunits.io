@@ -2,13 +2,13 @@ import Link from 'next/link'
 import { useLocale } from '../locales/useLocale'
 
 const Footer = () => {
-  const { locale } = useLocale()
+  const { locale, t } = useLocale()
 
   return (
     <div>
       <footer>
         <p className="contact">
-          お問い合わせ: <pre>info@planckunits.com</pre>
+          {t.contact}: <pre>info@planckunits.com</pre>
         </p>
         <div style={{ display: 'flex', gap: '4px' }}>
           {locale === 'ja' ? (
