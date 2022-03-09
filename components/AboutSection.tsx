@@ -1,4 +1,4 @@
-import { useLocale } from '../locales/useLocale'
+import { useLocale } from '../i18n/useLocale'
 import Section from './Section'
 
 const officeUrl = 'https://www.google.com/maps?q=35.7478271,139.800753'

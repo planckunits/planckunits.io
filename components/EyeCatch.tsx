@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useLocale } from '../locales/useLocale'
+import { useLocale } from '../i18n/useLocale'
 
 const EyeCatch = () => {
   const { t } = useLocale()

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useLocale } from '../locales/useLocale'
+import { useLocale } from '../i18n/useLocale'
 
 const Footer = () => {
   const { locale, t } = useLocale()
@@ -8,14 +8,14 @@ const Footer = () => {
     <div>
       <footer>
         <p className="contact">
-          {t.contact}: <pre>info@planckunits.com</pre>
+          {t.contact}: <code>info@planckunits.com</code>
         </p>
         <div style={{ display: 'flex', gap: '4px' }}>
           {locale === 'ja' ? (
             <>
               <span>ja</span>
               <span>/</span>
-              <Link href="/" locale="en" passHref>
+              <Link href="/en" locale="en" passHref>
                 en
               </Link>
             </>

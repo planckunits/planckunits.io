@@ -1,4 +1,5 @@
 import Section from './Section'
+import { useLocale } from '../i18n/useLocale'
 
 type Props = {}
 const awards = [
@@ -23,31 +24,35 @@ const awards = [
   },
 ]
 
-const AwardsSection = ({}: Props) => (
-  <Section name="受賞歴・記事">
-    <div>
-      <ul>
-        {awards.map((award, i) => (
-          <li key={i} className="award">
-            <p>{award.time}</p>
-            <a href={award.link}>{award.title}</a>
-            <p>{award.text}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+const AwardsSection = ({}: Props) => {
+  const { t } = useLocale()
 
-    <style jsx>{`
-      ul {
-        padding-left: 4px;
-      }
-      .award {
-        list-style: none;
-        border-left: solid 2px black;
-        padding-left: 16px;
-      }
-    `}</style>
-  </Section>
-)
+  return (
+    <Section name={t.awards}>
+      <div>
+        <ul>
+          {awards.map((award, i) => (
+            <li key={i} className="award">
+              <p>{award.time}</p>
+              <a href={award.link}>{award.title}</a>
+              <p>{award.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <style jsx>{`
+        ul {
+          padding-left: 4px;
+        }
+        .award {
+          list-style: none;
+          border-left: solid 2px black;
+          padding-left: 16px;
+        }
+      `}</style>
+    </Section>
+  )
+}
 
 export default AwardsSection

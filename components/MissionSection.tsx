@@ -1,5 +1,5 @@
 import Section from './Section'
-import { useLocale } from '../locales/useLocale'
+import { useLocale } from '../i18n/useLocale'
 
 const MissionSection = () => {
   const { t } = useLocale()
