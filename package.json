@@ -11,7 +11,7 @@
     "url": "https://elzup.com"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=16"
   },
   "scripts": {
     "dev": "next",
