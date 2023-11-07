@@ -19,6 +19,11 @@ const WorksSection = () => {
           <li>{t.workShifco}</li>
           <li>{t.workIoT}</li>
           <li>{t.workPlantIoT}</li>
+          <li>{t.workMobility}</li>
+          <li>{t.workCamera}</li>
+          <li>{t.workQrKey}</li>
+          <li>{t.workPanel}</li>
+          <li>{t.workIndoorLocation}</li>
           <li></li>
         </ul>
       </div>

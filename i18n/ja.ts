@@ -57,6 +57,14 @@ const locales = {
   workShifco: 'シフト管理システム',
   workIoT: 'IoT ソリューション・コンサルティング',
   workPlantIoT: '工事現場向けIoTシステム',
+  workMobility:
+    'シェアリングモビリティ向け位置情報システム組み込み 移動体に設置してスマホから電源操作、センサー情報の収集をする機器の開発',
+  workCamera:
+    '屋外現場向けの遠隔カメラモニタリングシステム、リアルタイム映像、PTZ、タイムラプス画像',
+  workQrKey:
+    'QR電子キーシステムの重機の電子キー側製造、社員が日々入れ替わる現場の鍵管理',
+  workPanel: 'タッチパネル付きLinux装置の製造、クラウド管理',
+  workIndoorLocation: '医療向けけセンサデータおよび位置情報管理システム',
   awards: '受賞歴 / 記事',
 }
 export default locales

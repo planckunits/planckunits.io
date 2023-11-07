@@ -54,14 +54,23 @@ const locales = {
 
   workKui:
     'Information Management System (Best Corporation, Energia Corporation, Takaya Corporation)',
-  workPf:
-    'Environmental Control Device Pocket Farm (Hosono Farm Co., Ltd.) Demo site is here.',
+  workPf: 'Environmental Control Device Pocket Farm (Hosono Farm Co., Ltd.). ',
   workPfLink: 'Demo here',
   workDosya:
     'Land Information Management System, Landslide Detection System (Repro Corporation)',
   workShifco: 'Shift Management System',
   workIoT: 'IoT Solutions Consulting',
   workPlantIoT: 'IoT system for construction sites',
+  workMobility:
+    'Development of devices installed in mobile units for sharing mobility, enabling power control and sensor data collection from smartphones.',
+  workCamera:
+    'Remote camera monitoring system for outdoor sites, providing real-time video, PTZ, and time-lapse images.',
+  workQrKey:
+    'Manufacturing electronic keys for heavy machinery using a QR electronic key system, for managing keys at sites with daily employee turnover.',
+  workPanel:
+    'Manufacturing Linux devices with touch panels, with cloud management capabilities.',
+  workIndoorLocation:
+    'Sensor data and indoor location management system for the medical field.',
   awards: 'Awards / Articles',
 }
 export default locales
