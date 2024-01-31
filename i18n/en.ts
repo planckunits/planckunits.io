@@ -34,7 +34,7 @@ const locales = {
   ],
   capital: 'Capital',
   capitalConst: '7,500,000 yen',
-  clients: 'Main Clients',
+  clients: ['Main Clients'],
   clientsConst: [
     'Ripro Corporation',
     'Energia Corporation',

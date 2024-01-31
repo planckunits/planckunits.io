@@ -49,7 +49,11 @@ const AboutSection = () => {
             <td>{t.noEmployeesConst}</td>
           </tr>
           <tr>
-            <th>{t.clients}</th>
+            <th>
+              {t.clients.map((v, i) => (
+                <div key={i}>{v}</div>
+              ))}
+            </th>
             <td>
               <ul className="">
                 {t.clientsConst.map((client, i) => (
@@ -82,7 +86,7 @@ const AboutSection = () => {
           font-weight: normal;
         }
         th {
-          width: 100px;
+          width: 130px;
         }
         ul {
           list-style: none;
