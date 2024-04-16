@@ -23,7 +23,7 @@ const locales = {
   established: '設立',
   established201711: '2017年11月',
   office: 'オフィス',
-  puAddress: '〒120-0026 東京都足立区千住旭町19-5',
+  puAddress: '〒120-0036 東京都足立区千住仲町19-6和光マンション405',
   buisiness: '事業内容',
   noEmployees: '従業員数',
   noEmployeesConst: '3人',

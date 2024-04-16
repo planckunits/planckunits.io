@@ -23,7 +23,7 @@ const locales = {
   established: 'Established',
   established201711: 'November 2017',
   office: 'Office',
-  puAddress: '19-5 Senju-Asahi-cho, Adachi-ku, Tokyo 120-0026, Japan',
+  puAddress: '120-0036 東京都足立区千住仲町19-6和光マンション405',
   buisiness: 'Business',
   noEmployees: 'Number of Employees',
   noEmployeesConst: '3',
