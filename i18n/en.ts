@@ -1,5 +1,40 @@
 const locales = {
+  // Common
   contact: 'Contact',
+  learnMore: 'Learn More',
+  seeWorks: 'See Our Work',
+
+  // Hero
+  heroHeadline: 'Build Your MVP\nwith Confidence',
+  heroSubheadline:
+    'From IoT to web apps, we bring your startup vision to life with end-to-end development expertise.',
+  heroCtaPrimary: 'Contact Us',
+  heroCtaSecondary: 'See Our Work',
+
+  // Trust indicators
+  trustYears: '7+ Years',
+  trustYearsLabel: 'Experience',
+  trustProjects: '50+',
+  trustProjectsLabel: 'Projects',
+  trustStack: 'IoT × Web',
+  trustStackLabel: 'Full Stack',
+
+  // Strengths section
+  strengthsTitle: 'Why PlanckUnits?',
+  strengthCustomTitle: 'Custom Development',
+  strengthCustomDesc:
+    'Tailored solutions designed for your unique challenges, not off-the-shelf products.',
+  strengthAnalyticsTitle: 'Deep Analysis',
+  strengthAnalyticsDesc:
+    'We identify the essence of your requirements and propose optimal technology choices.',
+  strengthAdaptTitle: 'Agile & Flexible',
+  strengthAdaptDesc:
+    'We adapt to changing requirements, matching your startup\'s pace and needs.',
+  strengthFullstackTitle: 'Full Stack',
+  strengthFullstackDesc:
+    'From hardware to applications, we provide end-to-end development capabilities.',
+
+  // Missions
   mission1:
     'Contribute to happiness and affluence through IoT technology and cloud technology with heart and skill.',
   mission2:

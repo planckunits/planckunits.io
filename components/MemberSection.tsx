@@ -3,14 +3,13 @@ import { useLocale } from '../i18n/useLocale'
 import Member from './Member'
 import Section from './Section'
 
-type Props = { name?: string }
-
-const MemberSection = ({ name = 'Section' }: Props) => {
+const MemberSection = () => {
   const { t } = useLocale()
+
   return (
-    <Section name="Members">
+    <Section name="Members" id="members">
       <div className="image-wrap">
-        <img src={'static/pu-member.jpg'} alt={`プランクユニッツ ${name}`} />
+        <img src="static/pu-member.jpg" alt="PlanckUnits Team" />
       </div>
       <div className="members">
         <Member
@@ -28,20 +27,31 @@ const MemberSection = ({ name = 'Section' }: Props) => {
       </div>
 
       <style jsx>{`
-        .members {
-          display: flex;
-          justify-content: space-around;
-        }
-
-        img {
-          width: 50%;
-        }
         .image-wrap {
           text-align: center;
+          margin-bottom: var(--space-10);
         }
-        @media (max-width: 600px) {
+
+        .image-wrap img {
+          width: 100%;
+          max-width: 500px;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-md);
+        }
+
+        .members {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--space-6);
+        }
+
+        @media (max-width: 768px) {
           .members {
-            flex-direction: column;
+            grid-template-columns: 1fr;
+          }
+
+          .image-wrap img {
+            max-width: 100%;
           }
         }
       `}</style>

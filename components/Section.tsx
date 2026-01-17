@@ -1,34 +1,70 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-type Props = { name?: string }
+type Props = {
+  name?: string
+  id?: string
+  children: ReactNode
+}
 
-const Section: React.FC<Props> = ({ children, name = 'Section' }) => (
-  <div>
-    <section>
-      <div>
-        <h2>{name}</h2>
-        {children}
-      </div>
-    </section>
+const Section: React.FC<Props> = ({ children, name, id }) => (
+  <section id={id}>
+    <div className="section-inner">
+      {name && <h2>{name}</h2>}
+      {children}
+    </div>
 
     <style jsx>{`
+      section {
+        padding: var(--space-20) var(--space-4);
+      }
+
+      .section-inner {
+        max-width: var(--max-width);
+        width: 100%;
+        margin: 0 auto;
+        font-size: var(--text-lg);
+      }
+
       h2 {
         text-align: center;
-        font-size: 33px;
+        font-size: var(--text-4xl);
+        font-weight: 600;
+        margin: 0 0 var(--space-12);
+        color: var(--color-primary-700);
       }
-      section {
-        width: 800px;
-        margin: 100px auto;
-        font-size: 18px;
+
+      @media (max-width: 1024px) {
+        .section-inner {
+          max-width: 800px;
+        }
       }
-      @media (max-width: 600px) {
+
+      @media (max-width: 768px) {
         section {
-          width: 92%;
-          padding: 0 4%;
+          padding: var(--space-16) var(--space-4);
+        }
+
+        h2 {
+          font-size: var(--text-3xl);
+          margin-bottom: var(--space-8);
+        }
+      }
+
+      @media (max-width: 640px) {
+        section {
+          padding: var(--space-12) var(--space-4);
+        }
+
+        .section-inner {
+          font-size: var(--text-base);
+        }
+
+        h2 {
+          font-size: var(--text-2xl);
         }
       }
     `}</style>
-  </div>
+  </section>
 )
 
 export default Section

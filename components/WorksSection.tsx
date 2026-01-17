@@ -1,50 +1,44 @@
+import { useState } from 'react'
 import Section from './Section'
-import { useLocale } from '../i18n/useLocale'
+import CategoryTabs from './CategoryTabs'
+import WorkCard from './WorkCard'
+import { works, Category } from '../data/works'
 
 const WorksSection = () => {
-  const { t } = useLocale()
+  const [activeCategory, setActiveCategory] = useState<Category>('all')
+
+  const filteredWorks =
+    activeCategory === 'all'
+      ? works
+      : works.filter((work) => work.category === activeCategory)
 
   return (
-    <Section name="Works">
-      <div>
-        <ul>
-          <li>{t.workKui}</li>
-          <li>
-            {t.workPf}
-            <a href="https://pocketfarm.planckunits.io/houses/0">
-              {t.workPfLink}
-            </a>
-          </li>
-          <li>{t.workDosya}</li>
-          <li>{t.workShifco}</li>
-          <li>{t.workIoT}</li>
-          <li>{t.workPlantIoT}</li>
-          <li>{t.workMobility}</li>
-          <li>{t.workCamera}</li>
-          <li>{t.workQrKey}</li>
-          <li>{t.workPanel}</li>
-          <li>{t.workIndoorLocation}</li>
-          <li></li>
-        </ul>
+    <Section name="Works" id="works">
+      <CategoryTabs active={activeCategory} onChange={setActiveCategory} />
+
+      <div className="works-grid">
+        {filteredWorks.map((work) => (
+          <WorkCard key={work.id} work={work} />
+        ))}
       </div>
+
       <style jsx>{`
-        .members {
-          display: flex;
-          justify-content: space-around;
+        .works-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--space-6);
         }
-        @media (max-width: 600px) {
-          .members {
-            flex-direction: column;
+
+        @media (max-width: 1024px) {
+          .works-grid {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
-        li {
-          background: url(static/hex.svg) left 0px top 7px no-repeat;
-          background-size: 0.8rem;
-          padding-left: 1.2rem;
-          list-style: none;
-        }
-        ul {
-          padding-left: 1rem;
+
+        @media (max-width: 640px) {
+          .works-grid {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
     </Section>

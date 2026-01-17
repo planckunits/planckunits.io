@@ -1,5 +1,40 @@
 const locales = {
+  // Common
   contact: 'お問い合わせ',
+  learnMore: '詳しく見る',
+  seeWorks: '実績を見る',
+
+  // Hero
+  heroHeadline: 'スタートアップの\nMVP開発、お任せください',
+  heroSubheadline:
+    'IoTからWebアプリまで、ハードウェアからクラウドまで一貫した開発体制でアイデアを形にします。',
+  heroCtaPrimary: 'お問い合わせ',
+  heroCtaSecondary: '実績を見る',
+
+  // Trust indicators
+  trustYears: '7年以上',
+  trustYearsLabel: 'の実績',
+  trustProjects: '50+',
+  trustProjectsLabel: 'プロジェクト',
+  trustStack: 'IoT × Web',
+  trustStackLabel: 'フルスタック',
+
+  // Strengths section
+  strengthsTitle: 'PlanckUnitsの強み',
+  strengthCustomTitle: 'オーダーメイド開発',
+  strengthCustomDesc:
+    '既製品ではなく、お客様の課題に合わせた最適なソリューションを設計・開発します。',
+  strengthAnalyticsTitle: '分析力',
+  strengthAnalyticsDesc:
+    '要件の本質を見抜き、最適な技術選定と設計を提案。無駄のない開発を実現します。',
+  strengthAdaptTitle: '機転・柔軟性',
+  strengthAdaptDesc:
+    '変化する要件にも柔軟に対応。スタートアップのスピード感に合わせた開発が可能です。',
+  strengthFullstackTitle: 'フルスタック',
+  strengthFullstackDesc:
+    'ハードウェアからアプリケーションまで、一貫した開発体制で対応します。',
+
+  // Missions
   mission1:
     '心と技術をこめたIoT技術、クラウド技術を通したモノづくりにより幸せと豊かさに貢献します。',
   mission2:

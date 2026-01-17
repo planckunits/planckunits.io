@@ -1,7 +1,6 @@
 import Section from './Section'
 import { useLocale } from '../i18n/useLocale'
 
-type Props = {}
 const awards = [
   {
     time: '2021年09月',
@@ -24,31 +23,91 @@ const awards = [
   },
 ]
 
-const AwardsSection = ({}: Props) => {
+const AwardsSection = () => {
   const { t } = useLocale()
 
   return (
-    <Section name={t.awards}>
-      <div>
-        <ul>
-          {awards.map((award, i) => (
-            <li key={i} className="award">
-              <p>{award.time}</p>
-              <a href={award.link}>{award.title}</a>
-              <p>{award.text}</p>
-            </li>
-          ))}
-        </ul>
+    <Section name={t.awards} id="awards">
+      <div className="timeline">
+        {awards.map((award, i) => (
+          <article key={i} className="award">
+            <div className="time-badge">{award.time}</div>
+            <div className="content">
+              <a
+                href={award.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="title"
+              >
+                {award.title}
+              </a>
+              {award.text && <p className="description">{award.text}</p>}
+            </div>
+          </article>
+        ))}
       </div>
 
       <style jsx>{`
-        ul {
-          padding-left: 4px;
+        .timeline {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-6);
         }
+
         .award {
-          list-style: none;
-          border-left: solid 2px black;
-          padding-left: 16px;
+          display: flex;
+          gap: var(--space-5);
+          padding: var(--space-5);
+          background: var(--color-white);
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-sm);
+          border-left: 4px solid var(--color-accent-teal);
+        }
+
+        .time-badge {
+          flex-shrink: 0;
+          padding: var(--space-2) var(--space-3);
+          background: var(--color-neutral-100);
+          border-radius: var(--radius-md);
+          font-size: var(--text-sm);
+          font-weight: 600;
+          color: var(--color-neutral-700);
+          height: fit-content;
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-2);
+        }
+
+        .title {
+          font-size: var(--text-base);
+          color: var(--color-neutral-900);
+          text-decoration: none;
+          line-height: 1.5;
+          transition: color var(--transition-fast);
+        }
+
+        .title:hover {
+          color: var(--color-primary-700);
+        }
+
+        .description {
+          font-size: var(--text-sm);
+          color: var(--color-neutral-500);
+          margin: 0;
+        }
+
+        @media (max-width: 640px) {
+          .award {
+            flex-direction: column;
+            gap: var(--space-3);
+          }
+
+          .time-badge {
+            align-self: flex-start;
+          }
         }
       `}</style>
     </Section>
