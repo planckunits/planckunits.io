@@ -8,9 +8,6 @@ const MemberSection = () => {
 
   return (
     <Section name="Members" id="members">
-      <div className="image-wrap">
-        <img src="static/pu-member.jpg" alt="PlanckUnits Team" />
-      </div>
       <div className="members">
         <Member
           name={t.nonaka}
@@ -27,18 +24,6 @@ const MemberSection = () => {
       </div>
 
       <style jsx>{`
-        .image-wrap {
-          text-align: center;
-          margin-bottom: var(--space-10);
-        }
-
-        .image-wrap img {
-          width: 100%;
-          max-width: 500px;
-          border-radius: var(--radius-lg);
-          box-shadow: var(--shadow-md);
-        }
-
         .members {
           display: grid;
           grid-template-columns: repeat(2, 1fr);

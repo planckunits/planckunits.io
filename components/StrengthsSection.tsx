@@ -38,25 +38,25 @@ const StrengthsSection = () => {
       icon: <PuzzleIcon />,
       titleKey: 'strengthCustomTitle',
       descKey: 'strengthCustomDesc',
-      color: 'var(--color-accent-coral)',
+      color: '#ff6b6b',
     },
     {
       icon: <ChartIcon />,
       titleKey: 'strengthAnalyticsTitle',
       descKey: 'strengthAnalyticsDesc',
-      color: 'var(--color-accent-teal)',
+      color: '#4ecdc4',
     },
     {
       icon: <LightningIcon />,
       titleKey: 'strengthAdaptTitle',
       descKey: 'strengthAdaptDesc',
-      color: 'var(--color-primary-600)',
+      color: '#ffa500',
     },
     {
       icon: <ChipIcon />,
       titleKey: 'strengthFullstackTitle',
       descKey: 'strengthFullstackDesc',
-      color: 'var(--color-category-iot)',
+      color: '#a855f7',
     },
   ]
 

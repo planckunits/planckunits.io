@@ -5,7 +5,7 @@ const locales = {
   seeWorks: '実績を見る',
 
   // Hero
-  heroHeadline: 'スタートアップの\nPoC開発、お任せください',
+  heroHeadline: '頭の中の“できたらいいな”を、現実に。',
   heroSubheadline:
     'IoTからWebアプリまで、ハードウェアからクラウドまで一貫した開発体制でアイデアを形にします。',
   heroCtaPrimary: 'お問い合わせ',

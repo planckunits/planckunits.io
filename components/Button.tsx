@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react'
-import clsx from 'clsx'
 
 type Props = {
   children: ReactNode
@@ -19,13 +18,14 @@ const Button: React.FC<Props> = ({
   onClick,
 }) => {
   const Component = href ? 'a' : 'button'
+  const classes = ['btn', `btn-${variant}`, `btn-${size}`, className].filter(Boolean).join(' ')
 
   return (
     <>
       <Component
         href={href}
         onClick={onClick}
-        className={clsx('btn', `btn-${variant}`, `btn-${size}`, className)}
+        className={classes}
       >
         {children}
       </Component>
@@ -35,92 +35,67 @@ const Button: React.FC<Props> = ({
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: var(--space-2);
+          gap: 0.5rem;
           border: none;
-          border-radius: var(--radius-md);
+          border-radius: 0.5rem;
           font-weight: 600;
           text-decoration: none;
           cursor: pointer;
-          transition: all var(--transition-fast);
+          transition: all 0.2s;
         }
 
         .btn:focus-visible {
-          outline: 2px solid var(--color-accent-teal);
+          outline: 2px solid #667eea;
           outline-offset: 2px;
         }
 
         /* Sizes */
         .btn-sm {
-          padding: var(--space-2) var(--space-4);
-          font-size: var(--text-sm);
+          padding: 0.5rem 1rem;
+          font-size: 0.875rem;
         }
 
         .btn-md {
-          padding: var(--space-3) var(--space-6);
-          font-size: var(--text-base);
+          padding: 0.75rem 1.5rem;
+          font-size: 1rem;
         }
 
         .btn-lg {
-          padding: var(--space-4) var(--space-8);
-          font-size: var(--text-lg);
+          padding: 0.875rem 2rem;
+          font-size: 1.125rem;
         }
 
         /* Variants */
         .btn-primary {
-          background: var(--gradient-cyber);
-          color: var(--color-white);
-          box-shadow: var(--shadow-neon-cyan);
-          position: relative;
-          overflow: hidden;
-        }
-
-        .btn-primary::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 0;
-          height: 0;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.3);
-          transform: translate(-50%, -50%);
-          transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-primary:hover::before {
-          width: 300px;
-          height: 300px;
+          background: #667eea;
+          color: white;
         }
 
         .btn-primary:hover {
-          transform: translateY(-3px);
-          box-shadow: var(--shadow-neon-cyan), 0 8px 16px rgba(0, 0, 0, 0.3);
+          background: #5a67d8;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
         }
 
         .btn-secondary {
-          background: rgba(10, 14, 39, 0.5);
-          backdrop-filter: blur(10px);
-          color: var(--color-accent-cyan);
-          border: 2px solid var(--color-accent-cyan);
-          box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+          background: transparent;
+          color: #667eea;
+          border: 2px solid #667eea;
         }
 
         .btn-secondary:hover {
-          background: rgba(0, 240, 255, 0.1);
-          border-color: var(--color-accent-pink);
-          color: var(--color-accent-pink);
-          box-shadow: var(--shadow-neon-pink);
-          transform: translateY(-3px);
+          background: rgba(102, 126, 234, 0.1);
+          transform: translateY(-2px);
         }
 
         .btn-ghost {
           background: transparent;
-          color: rgba(255, 255, 255, 0.8);
+          color: #6b7280;
         }
 
         .btn-ghost:hover {
-          background: rgba(255, 255, 255, 0.05);
-          color: var(--color-accent-cyan);
+          background: rgba(0, 0, 0, 0.05);
+          color: #111827;
         }
       `}</style>
     </>

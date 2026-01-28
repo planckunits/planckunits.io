@@ -25,14 +25,15 @@ const StrengthCard: React.FC<Props> = ({
         background: var(--color-white);
         border-radius: var(--radius-lg);
         padding: var(--space-8);
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         transition: all var(--transition-normal);
         text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.05);
       }
 
       .card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-lg);
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
       }
 
       .icon-wrapper {
@@ -49,14 +50,14 @@ const StrengthCard: React.FC<Props> = ({
 
       h3 {
         font-size: var(--text-xl);
-        font-weight: 600;
-        color: var(--color-neutral-900);
+        font-weight: 700;
+        color: #1a202c;
         margin: 0 0 var(--space-3);
       }
 
       p {
         font-size: var(--text-base);
-        color: var(--color-neutral-700);
+        color: #4a5568;
         line-height: 1.6;
         margin: 0;
       }

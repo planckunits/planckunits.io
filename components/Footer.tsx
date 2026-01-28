@@ -10,9 +10,9 @@ const Footer = () => {
       <div className="footer-content">
         <div className="contact-section">
           <span className="contact-label">{t.contact}</span>
-          <a href="mailto:info@planckunits.com" className="contact-email">
+          <span className="contact-email">
             info@planckunits.com
-          </a>
+          </span>
         </div>
 
         <div className="locale-switcher">
@@ -21,13 +21,13 @@ const Footer = () => {
               <span className="active">ja</span>
               <span className="divider">/</span>
               <Link href="/en" locale="en">
-                <a>en</a>
+                en
               </Link>
             </>
           ) : (
             <>
               <Link href="/" locale="ja">
-                <a>ja</a>
+                ja
               </Link>
               <span className="divider">/</span>
               <span className="active">en</span>
@@ -42,24 +42,12 @@ const Footer = () => {
 
       <style jsx>{`
         footer {
-          background: rgba(10, 14, 39, 0.95);
-          backdrop-filter: blur(10px);
-          color: var(--color-white);
+          background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+          color: rgba(255, 255, 255, 0.9);
           padding: var(--space-12) var(--space-4);
-          border-top: 1px solid rgba(0, 240, 255, 0.2);
+          border-top: 2px solid rgba(102, 126, 234, 0.3);
           position: relative;
           z-index: 1;
-        }
-
-        footer::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 1px;
-          background: var(--gradient-cyber);
-          opacity: 0.5;
         }
 
         .footer-content {
@@ -85,22 +73,14 @@ const Footer = () => {
         }
 
         .contact-email {
-          color: var(--color-accent-cyan);
+          color: #667eea;
           font-family: var(--font-mono);
           font-size: var(--text-base);
-          text-decoration: none;
           padding: var(--space-3) var(--space-5);
-          background: rgba(0, 240, 255, 0.1);
-          border: 1px solid var(--color-accent-cyan);
+          background: rgba(255, 255, 255, 0.95);
+          border: 2px solid rgba(102, 126, 234, 0.3);
           border-radius: var(--radius-md);
-          transition: all var(--transition-normal);
-          box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-        }
-
-        .contact-email:hover {
-          background: rgba(0, 240, 255, 0.2);
-          box-shadow: var(--shadow-neon-cyan);
-          transform: translateY(-2px);
+          font-weight: 600;
         }
 
         .locale-switcher {
@@ -112,7 +92,7 @@ const Footer = () => {
         }
 
         .locale-switcher a {
-          color: rgba(255, 255, 255, 0.5);
+          color: rgba(255, 255, 255, 0.6);
           text-decoration: none;
           transition: all var(--transition-normal);
           text-transform: uppercase;
@@ -120,22 +100,20 @@ const Footer = () => {
         }
 
         .locale-switcher a:hover {
-          color: var(--color-accent-cyan);
-          text-shadow: 0 0 10px var(--color-accent-cyan);
+          color: rgba(255, 255, 255, 1);
         }
 
         .locale-switcher .active {
-          color: var(--color-accent-cyan);
+          color: rgba(255, 255, 255, 1);
           font-weight: 700;
-          text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
         }
 
         .locale-switcher .divider {
-          color: rgba(255, 255, 255, 0.3);
+          color: rgba(255, 255, 255, 0.4);
         }
 
         .copyright {
-          color: rgba(255, 255, 255, 0.4);
+          color: rgba(255, 255, 255, 0.5);
           font-size: var(--text-sm);
           margin: 0;
           font-family: var(--font-mono);

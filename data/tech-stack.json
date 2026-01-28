@@ -1,0 +1,254 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-28",
+  "categories": {
+    "frontend": {
+      "name": "Frontend Technologies",
+      "icon": "💻",
+      "skills": [
+        { "name": "React", "level": "expert", "versions": ["17", "18"] },
+        { "name": "TypeScript", "level": "expert", "versions": ["4.x", "5.x"] },
+        { "name": "Next.js", "level": "advanced", "versions": ["12", "13"] },
+        { "name": "Material-UI", "level": "expert", "versions": ["4", "5"] },
+        { "name": "Redux", "level": "advanced" },
+        { "name": "Vite", "level": "advanced" },
+        { "name": "Webpack", "level": "advanced" }
+      ]
+    },
+    "backend": {
+      "name": "Backend Technologies",
+      "icon": "⚙️",
+      "skills": [
+        { "name": "Node.js", "level": "expert", "frameworks": ["Express.js"] },
+        { "name": "Ruby on Rails", "level": "advanced", "versions": ["6.1.7"] },
+        { "name": "PHP", "level": "advanced", "frameworks": ["Laravel"] },
+        { "name": "Python", "level": "advanced", "frameworks": ["Flask"] }
+      ]
+    },
+    "cloud": {
+      "name": "Cloud Platforms",
+      "icon": "☁️",
+      "platforms": [
+        {
+          "name": "Firebase/GCP",
+          "level": "expert",
+          "services": [
+            "Hosting",
+            "Cloud Functions",
+            "Realtime Database",
+            "Authentication",
+            "Cloud Storage",
+            "Cloud Logging",
+            "Speech-to-Text",
+            "BigQuery"
+          ]
+        },
+        {
+          "name": "AWS",
+          "level": "advanced",
+          "services": [
+            "Kinesis Video Streams",
+            "S3",
+            "Lambda"
+          ]
+        }
+      ]
+    },
+    "database": {
+      "name": "Databases",
+      "icon": "🗄️",
+      "technologies": [
+        { "name": "PostgreSQL", "level": "advanced", "type": "RDBMS" },
+        { "name": "MySQL", "level": "advanced", "type": "RDBMS" },
+        { "name": "Firebase Realtime DB", "level": "expert", "type": "NoSQL" },
+        { "name": "BigQuery", "level": "intermediate", "type": "Data Warehouse" },
+        { "name": "Redis", "level": "advanced", "type": "In-Memory" }
+      ]
+    },
+    "iot": {
+      "name": "IoT & Embedded",
+      "icon": "🔌",
+      "platforms": [
+        {
+          "name": "Raspberry Pi",
+          "level": "expert",
+          "libraries": ["gpiozero", "pigpio", "RPi.GPIO", "picamera"]
+        }
+      ],
+      "protocols": [
+        { "name": "MQTT", "level": "expert", "versions": ["3.1.1", "5.0"] },
+        { "name": "WebRTC", "level": "advanced" },
+        { "name": "RTSP", "level": "advanced" },
+        { "name": "WebSocket", "level": "expert" },
+        { "name": "Serial (RS-232/485)", "level": "advanced" }
+      ],
+      "sensors": [
+        "Temperature/Humidity",
+        "GPS",
+        "Soil Moisture",
+        "Radiation",
+        "Atmospheric Pressure",
+        "Camera"
+      ]
+    },
+    "aiml": {
+      "name": "AI & Machine Learning",
+      "icon": "🤖",
+      "frameworks": [
+        { "name": "PyTorch", "level": "advanced" },
+        { "name": "Transformers (Hugging Face)", "level": "advanced" },
+        { "name": "OpenCV", "level": "intermediate" }
+      ],
+      "tasks": [
+        "Person Detection",
+        "Speech-to-Text",
+        "Natural Language Processing",
+        "Log Analysis"
+      ],
+      "apis": [
+        "Google Cloud Speech-to-Text",
+        "OpenAI API"
+      ]
+    },
+    "visualization": {
+      "name": "Data Visualization",
+      "icon": "📊",
+      "libraries": [
+        "Chart.js",
+        "Recharts",
+        "Nivo",
+        "Google Charts",
+        "Leaflet",
+        "Cytoscape.js",
+        "Zdog"
+      ]
+    },
+    "devops": {
+      "name": "DevOps & Tools",
+      "icon": "🛠️",
+      "tools": [
+        "Docker",
+        "Docker Compose",
+        "Git",
+        "GitHub Actions",
+        "ESLint",
+        "Prettier",
+        "Jest",
+        "Cypress"
+      ]
+    }
+  },
+  "projects": [
+    {
+      "name": "AKTICAM",
+      "scale": "large",
+      "status": "active",
+      "domain": "Video Surveillance SaaS",
+      "tech": ["AWS Kinesis Video", "Laravel", "Express.js", "Redis", "BullMQ"],
+      "description": "IPカメラ映像のクラウド配信・管理システム"
+    },
+    {
+      "name": "BUSPRO",
+      "scale": "large",
+      "status": "active",
+      "domain": "Bus Operation Management",
+      "tech": ["Raspberry Pi", "GCP", "React", "BigQuery", "MQTT"],
+      "description": "GPS搭載車載機による運行管理システム"
+    },
+    {
+      "name": "POCKETFARM",
+      "scale": "medium",
+      "status": "active",
+      "domain": "Agriculture IoT",
+      "tech": ["Ruby on Rails", "PostgreSQL", "MQTT", "React", "SendGrid"],
+      "description": "農地センサー環境監視・自動灌水制御"
+    },
+    {
+      "name": "MUNEKATA",
+      "scale": "medium",
+      "status": "active",
+      "domain": "Multi-Sensor Platform",
+      "tech": ["Firebase", "React", "Material-UI", "Leaflet"],
+      "description": "環境計測センサーの統合管理（4バリエーション）"
+    },
+    {
+      "name": "LOGPOT",
+      "scale": "medium",
+      "status": "active",
+      "domain": "Log Aggregation & Visualization",
+      "tech": ["Firebase", "Vite", "MQTT", "OpenAI API", "Nivo"],
+      "description": "ログ集約・可視化・AI分析プラットフォーム"
+    },
+    {
+      "name": "SCUNIT",
+      "scale": "small",
+      "status": "active",
+      "domain": "AI Camera Unit",
+      "tech": ["Python", "WebRTC", "Ion SFU", "PyTorch", "Transformers"],
+      "description": "エッジAI人物検知カメラシステム"
+    },
+    {
+      "name": "WCRS",
+      "scale": "small-medium",
+      "status": "active",
+      "domain": "Wireless Communication Monitoring",
+      "tech": ["Next.js", "React", "TCP", "MQTT", "Chart.js"],
+      "description": "無線通信品質リアルタイム監視"
+    },
+    {
+      "name": "AKTIVISION",
+      "scale": "medium",
+      "status": "active",
+      "domain": "Video Log Management",
+      "tech": ["PHP", "MySQL", "Docker", "Nginx", "SendGrid"],
+      "description": "映像ログ蓄積・検索システム"
+    }
+  ],
+  "statistics": {
+    "totalRepositories": 80,
+    "activeProjects": 8,
+    "languages": {
+      "TypeScript/JavaScript": 40,
+      "Python": 25,
+      "Ruby": 10,
+      "PHP": 10,
+      "C/C++": 5,
+      "Other": 10
+    },
+    "cloudUsage": {
+      "Firebase/GCP": 60,
+      "AWS": 15,
+      "Hybrid": 10,
+      "OnPremise": 15
+    }
+  },
+  "domains": [
+    { "name": "Agriculture", "icon": "🌾", "projects": ["POCKETFARM"] },
+    { "name": "Transportation", "icon": "🚌", "projects": ["BUSPRO"] },
+    { "name": "Environmental Monitoring", "icon": "🌡️", "projects": ["MUNEKATA"] },
+    { "name": "Video Surveillance", "icon": "📹", "projects": ["AKTICAM", "SCUNIT", "AKTIVISION"] },
+    { "name": "Log Management", "icon": "📊", "projects": ["LOGPOT"] },
+    { "name": "Communication", "icon": "📡", "projects": ["WCRS"] }
+  ],
+  "capabilities": {
+    "immediate": [
+      "Raspberry Pi Development",
+      "MQTT/WebRTC/RTSP Communication",
+      "Firebase/AWS Cloud Integration",
+      "React/TypeScript Frontend",
+      "Node.js/Rails Backend",
+      "AI Inference (Person Detection, Speech Recognition)",
+      "Real-time Data Visualization",
+      "Docker Containerization"
+    ],
+    "quickAdaptation": [
+      "Arduino/ESP32 Development",
+      "LoRaWAN/Bluetooth LE",
+      "Modbus/OPC UA (Industrial Equipment)",
+      "TensorFlow Lite (Edge AI)",
+      "Battery Management System",
+      "Solar Charge Control",
+      "UPS Integration"
+    ]
+  }
+}

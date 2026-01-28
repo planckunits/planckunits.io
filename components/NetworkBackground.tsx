@@ -21,7 +21,7 @@ const NetworkBackground: React.FC<NetworkBackgroundProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const nodesRef = useRef<Node[]>([])
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number | undefined>(undefined)
   const mouseRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {

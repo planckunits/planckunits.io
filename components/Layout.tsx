@@ -4,7 +4,10 @@ import Header from './Header'
 import Footer from './Footer'
 import NetworkBackground from './NetworkBackground'
 
-type Props = { title?: string }
+type Props = {
+  title?: string
+  children?: React.ReactNode
+}
 
 const Layout: React.FC<Props> = ({ children }) => (
   <div className="app-container">
@@ -38,7 +41,7 @@ const Layout: React.FC<Props> = ({ children }) => (
       .app-container {
         position: relative;
         min-height: 100vh;
-        background: var(--gradient-dark);
+        background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
       }
 
       section {

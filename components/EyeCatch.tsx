@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { useLocale } from '../i18n/useLocale'
-import { motion } from 'framer-motion'
-import Button from './Button'
 
 const EyeCatch = () => {
   const { t } = useLocale()
@@ -9,114 +7,51 @@ const EyeCatch = () => {
   return (
     <section className="hero">
       <div className="hero-content">
-        <motion.div
-          className="logo-container"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-        >
-          <img src="static/logo-name.svg" alt="PlanckUnits" className="floating" />
-        </motion.div>
+        <div className="logo-container">
+          <img src="static/logo-name.svg" alt="PlanckUnits" />
+        </div>
 
-        <motion.h1
-          className="gradient-text"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        <h1>
           {t.heroHeadline.split('\n').map((line, i) => (
-            <span key={i} className="hero-text-line">
+            <span key={i}>
               {line}
               {i === 0 && <br />}
             </span>
           ))}
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          className="subheadline"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          {t.heroSubheadline}
-        </motion.p>
+        <p className="subheadline">{t.heroSubheadline}</p>
 
-        <motion.div
-          className="cta-group"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <Button href="mailto:info@planckunits.com" variant="primary" size="lg">
+        <div className="cta-group">
+          <a href="mailto:info@planckunits.com" className="btn btn-primary">
             {t.heroCtaPrimary}
-          </Button>
-          <Button href="#works" variant="secondary" size="lg">
+          </a>
+          <a href="#works" className="btn btn-secondary">
             {t.heroCtaSecondary}
-          </Button>
-        </motion.div>
-
-        <motion.div
-          className="trust-indicators glass"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
-          <div className="trust-item">
-            <span className="trust-value">{t.trustYears}</span>
-            <span className="trust-label">{t.trustYearsLabel}</span>
-          </div>
-          <div className="trust-divider" />
-          <div className="trust-item">
-            <span className="trust-value">{t.trustProjects}</span>
-            <span className="trust-label">{t.trustProjectsLabel}</span>
-          </div>
-          <div className="trust-divider" />
-          <div className="trust-item">
-            <span className="trust-value">{t.trustStack}</span>
-            <span className="trust-label">{t.trustStackLabel}</span>
-          </div>
+          </a>
         </div>
       </div>
-
-      {/* Placeholder for future animations */}
-      <div className="animation-layer" aria-hidden="true" />
 
       <style jsx>{`
         .hero {
           position: relative;
-          min-height: calc(100vh - 60px);
+          min-height: 500px;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: var(--space-12) var(--space-4);
-          background: var(--gradient-dark);
-          overflow: hidden;
-        }
-
-        .hero::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(
-            circle at 50% 50%,
-            rgba(0, 240, 255, 0.1) 0%,
-            transparent 50%
-          );
-          pointer-events: none;
+          padding: 5rem 1.5rem;
+          background: var(--color-white);
+          border-bottom: 1px solid var(--color-gray-200);
         }
 
         .hero-content {
           position: relative;
-          z-index: 1;
           max-width: 800px;
           text-align: center;
         }
 
         .logo-container {
-          margin-bottom: var(--space-8);
+          margin-bottom: 2.5rem;
         }
 
         .logo-container img {
@@ -125,104 +60,63 @@ const EyeCatch = () => {
         }
 
         h1 {
-          font-size: var(--text-5xl);
-          font-weight: 800;
-          line-height: 1.1;
-          margin: 0 0 var(--space-6);
-          letter-spacing: -0.02em;
-        }
-
-        .hero-text-line {
-          display: inline-block;
-          position: relative;
-        }
-
-        .hero-text-line::after {
-          content: attr(data-text);
-          position: absolute;
-          left: 2px;
-          top: 2px;
-          z-index: -1;
-          color: var(--color-accent-cyan);
-          opacity: 0.3;
+          font-size: 2.5rem;
+          font-weight: 700;
+          line-height: 1.2;
+          margin: 0 0 1.5rem;
+          color: var(--color-gray-900);
         }
 
         .subheadline {
-          font-size: var(--text-xl);
-          color: rgba(255, 255, 255, 0.8);
-          line-height: 1.6;
-          margin: 0 0 var(--space-10);
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-          font-weight: 300;
+          font-size: 1.1rem;
+          line-height: 1.7;
+          margin: 0 0 2.5rem;
+          color: var(--color-gray-600);
         }
 
         .cta-group {
           display: flex;
-          gap: var(--space-4);
+          gap: 1rem;
           justify-content: center;
           flex-wrap: wrap;
-          margin-bottom: var(--space-16);
         }
 
-        .trust-indicators {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: var(--space-6);
-          padding: var(--space-6) var(--space-8);
-          border-radius: var(--radius-lg);
-          box-shadow: var(--shadow-neon-cyan);
+        .btn {
+          display: inline-block;
+          padding: 0.875rem 2rem;
+          border-radius: 0.5rem;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.2s;
+          font-size: 1rem;
         }
 
-        .trust-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: var(--space-1);
+        .btn-primary {
+          background: var(--color-primary);
+          color: white;
         }
 
-        .trust-value {
-          font-size: var(--text-2xl);
-          font-weight: 700;
-          background: var(--gradient-cyber);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+        .btn-primary:hover {
+          background: var(--color-primary-dark);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
-        .trust-label {
-          font-size: var(--text-sm);
-          color: rgba(255, 255, 255, 0.6);
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
+        .btn-secondary {
+          background: var(--color-white);
+          color: var(--color-primary);
+          border: 2px solid var(--color-primary);
         }
 
-        .trust-divider {
-          width: 1px;
-          height: 40px;
-          background: linear-gradient(
-            180deg,
-            transparent 0%,
-            var(--color-accent-cyan) 50%,
-            transparent 100%
-          );
-        }
-
-        .animation-layer {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          pointer-events: none;
+        .btn-secondary:hover {
+          background: var(--color-gray-50);
+          transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
           .hero {
-            min-height: auto;
-            padding: var(--space-16) var(--space-4);
+            padding: 4rem 1.5rem;
+            min-height: 400px;
           }
 
           .logo-container img {
@@ -230,37 +124,31 @@ const EyeCatch = () => {
           }
 
           h1 {
-            font-size: var(--text-4xl);
+            font-size: 2rem;
           }
 
           .subheadline {
-            font-size: var(--text-lg);
-          }
-
-          .trust-indicators {
-            flex-direction: column;
-            gap: var(--space-4);
-            padding: var(--space-6);
-          }
-
-          .trust-divider {
-            width: 60px;
-            height: 1px;
+            font-size: 1rem;
           }
         }
 
         @media (max-width: 640px) {
           h1 {
-            font-size: var(--text-3xl);
+            font-size: 1.75rem;
           }
 
           .subheadline {
-            font-size: var(--text-base);
+            font-size: 0.9375rem;
           }
 
           .cta-group {
             flex-direction: column;
-            align-items: center;
+            align-items: stretch;
+          }
+
+          .btn {
+            width: 100%;
+            text-align: center;
           }
         }
       `}</style>

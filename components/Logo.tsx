@@ -4,8 +4,30 @@ const Logo = () => (
     <img src="static/logo.svg" alt="株式会社プランクユニッツ" />
     <style jsx>{`
       img {
-        width: 44px;
-        height: 44px;
+        width: 56px;
+        height: 56px;
+        transition: all var(--transition-normal);
+      }
+
+      @media (max-width: 1024px) {
+        img {
+          width: 48px;
+          height: 48px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        img {
+          width: 36px;
+          height: 36px;
+        }
       }
     `}</style>
   </div>

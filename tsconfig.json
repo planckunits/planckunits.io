@@ -8,10 +8,11 @@
     "jsx": "react-jsx",
     "lib": [
       "dom",
-      "es2017"
+      "dom.iterable",
+      "esnext"
     ],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
@@ -19,14 +20,21 @@
     "strict": true,
     "noImplicitAny": false,
     "target": "esnext",
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": [
     "node_modules"
   ],
   "include": [
+    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "i18n/index.js"
+    "i18n/index.js",
+    ".next/types/**/*.ts"
   ]
 }
