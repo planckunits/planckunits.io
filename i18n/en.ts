@@ -51,7 +51,7 @@ const locales = {
   takahashi: 'Hiroto Takahashi',
   takahashiRole: 'Director, CTO',
   takahashiDescription:
-    'Web application development, Ruby on Rails, nodejs, React, Redux, AWS, Firebase, PWA, Heroku, SPA, WebSockets, MQTT',
+    'Web application development, Full-stack development, TypeScript, React, Next.js, Vite, Astro, Node.js, Express, Rust, Ruby on Rails, PostgreSQL, Firebase, Supabase, AWS, Vercel, Docker, Tailwind CSS, WebSocket, MQTT, Vitest, Playwright',
   companyName: 'Company name',
   planckUnits: 'PlanckUnits Inc.',
   CEO: 'Representative Director',

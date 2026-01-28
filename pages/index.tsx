@@ -7,6 +7,7 @@ import WorksSection from '../components/WorksSection'
 import AboutSection from '../components/AboutSection'
 import MemberSection from '../components/MemberSection'
 import AwardsSection from '../components/AwardsSection'
+import TechStackDemoSection from '../components/TechStackDemoSection'
 
 const Index: NextPage = () => (
   <Layout>
@@ -18,6 +19,7 @@ const Index: NextPage = () => (
       <AboutSection />
       <MemberSection />
       <AwardsSection />
+      {process.env.NODE_ENV === 'development' && <TechStackDemoSection />}
     </main>
   </Layout>
 )

@@ -45,7 +45,7 @@ const Button: React.FC<Props> = ({
         }
 
         .btn:focus-visible {
-          outline: 2px solid #667eea;
+          outline: 2px solid #91C2D6;
           outline-offset: 2px;
         }
 
@@ -67,24 +67,24 @@ const Button: React.FC<Props> = ({
 
         /* Variants */
         .btn-primary {
-          background: #667eea;
+          background: #91C2D6;
           color: white;
         }
 
         .btn-primary:hover {
-          background: #5a67d8;
+          background: #116D93;
           transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+          box-shadow: 0 4px 12px rgba(125, 191, 217, 0.4);
         }
 
         .btn-secondary {
           background: transparent;
-          color: #667eea;
-          border: 2px solid #667eea;
+          color: #91C2D6;
+          border: 2px solid #91C2D6;
         }
 
         .btn-secondary:hover {
-          background: rgba(102, 126, 234, 0.1);
+          background: rgba(145, 194, 214, 0.1);
           transform: translateY(-2px);
         }
 

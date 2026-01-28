@@ -13,18 +13,18 @@ const Header = () => (
       header {
         position: sticky;
         top: 0;
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+        background: linear-gradient(135deg, rgba(145, 194, 214, 0.95) 0%, rgba(17, 109, 147, 0.95) 100%);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         z-index: 100;
-        border-bottom: 2px solid rgba(118, 75, 162, 0.3);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+        border-bottom: 2px solid rgba(17, 109, 147, 0.3);
+        box-shadow: 0 4px 12px rgba(125, 191, 217, 0.15);
       }
 
       nav {
         max-width: var(--max-width);
         margin: 0 auto;
-        padding: var(--space-4) var(--space-4);
+        padding: var(--space-2) var(--space-4);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -33,11 +33,11 @@ const Header = () => (
       nav :global(.brand) {
         display: flex;
         align-items: center;
-        gap: var(--space-4);
+        gap: var(--space-3);
         text-decoration: none;
         color: white;
         font-weight: 700;
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         transition: all var(--transition-normal);
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }

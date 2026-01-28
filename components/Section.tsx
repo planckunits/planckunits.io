@@ -30,7 +30,7 @@ const Section: React.FC<Props> = ({ children, name, id }) => (
         font-size: var(--text-4xl);
         font-weight: 800;
         margin: 0 0 var(--space-12);
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #91C2D6 0%, #116D93 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -47,8 +47,8 @@ const Section: React.FC<Props> = ({ children, name, id }) => (
         transform: translateX(-50%);
         width: 100px;
         height: 3px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        background: linear-gradient(135deg, #91C2D6 0%, #116D93 100%);
+        box-shadow: 0 2px 8px rgba(125, 191, 217, 0.3);
       }
 
       @media (max-width: 1024px) {

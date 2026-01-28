@@ -42,10 +42,10 @@ const Footer = () => {
 
       <style jsx>{`
         footer {
-          background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+          background: linear-gradient(135deg, #2D4851 0%, #1a2d35 100%);
           color: rgba(255, 255, 255, 0.9);
           padding: var(--space-12) var(--space-4);
-          border-top: 2px solid rgba(102, 126, 234, 0.3);
+          border-top: 2px solid rgba(125, 191, 217, 0.3);
           position: relative;
           z-index: 1;
         }
@@ -73,12 +73,12 @@ const Footer = () => {
         }
 
         .contact-email {
-          color: #667eea;
+          color: #116D93;
           font-family: var(--font-mono);
           font-size: var(--text-base);
           padding: var(--space-3) var(--space-5);
           background: rgba(255, 255, 255, 0.95);
-          border: 2px solid rgba(102, 126, 234, 0.3);
+          border: 2px solid rgba(125, 191, 217, 0.3);
           border-radius: var(--radius-md);
           font-weight: 600;
         }

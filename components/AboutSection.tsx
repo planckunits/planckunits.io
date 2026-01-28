@@ -102,13 +102,13 @@ const AboutSection = () => {
         }
 
         .value.link {
-          color: #667eea;
+          color: #91C2D6;
           text-decoration: none;
           transition: color 0.2s;
         }
 
         .value.link:hover {
-          color: #764ba2;
+          color: #116D93;
           text-decoration: underline;
         }
 
@@ -150,8 +150,8 @@ const AboutSection = () => {
         }
 
         .client-badge:hover {
-          border-color: #667eea;
-          color: #667eea;
+          border-color: #91C2D6;
+          color: #91C2D6;
           transform: translateY(-1px);
         }
 

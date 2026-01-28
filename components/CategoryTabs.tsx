@@ -51,9 +51,10 @@ const CategoryTabs: React.FC<Props> = ({ active, onChange }) => {
         }
 
         .tab.active {
-          background: var(--color-primary-700);
-          border-color: var(--color-primary-700);
+          background: var(--color-primary-900);
+          border-color: var(--color-primary-900);
           color: var(--color-white);
+          box-shadow: 0 2px 8px rgba(17, 109, 147, 0.3);
         }
 
         .tab:focus-visible {

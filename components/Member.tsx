@@ -40,7 +40,7 @@ const Member = ({ name, role, url, description }: Props) => (
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+        background: linear-gradient(135deg, #91C2D6 0%, #116D93 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -48,7 +48,7 @@ const Member = ({ name, role, url, description }: Props) => (
         font-size: 48px;
         font-weight: 700;
         margin: 0 auto var(--space-5);
-        box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        box-shadow: 0 4px 12px rgba(125, 191, 217, 0.3);
       }
 
       h3 {
@@ -60,7 +60,7 @@ const Member = ({ name, role, url, description }: Props) => (
 
       .role {
         font-size: var(--text-sm);
-        color: #667eea;
+        color: #116D93;
         font-weight: 600;
         margin: 0 0 var(--space-4);
       }
@@ -75,14 +75,14 @@ const Member = ({ name, role, url, description }: Props) => (
       .link {
         display: inline-block;
         font-size: var(--text-sm);
-        color: #667eea;
+        color: #91C2D6;
         text-decoration: none;
         font-weight: 600;
         transition: color var(--transition-fast);
       }
 
       .link:hover {
-        color: #764ba2;
+        color: #116D93;
       }
     `}</style>
   </div>

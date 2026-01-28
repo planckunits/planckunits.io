@@ -51,7 +51,7 @@ const locales = {
   takahashi: '高橋 洸人',
   takahashiRole: '取締役・CTO',
   takahashiDescription:
-    'Webアプリケーション開発、Ruby on Rails、nodejs、React、Redux、AWS、Firebase、PWA、Heroku、SPA、WebSocket、MQTT',
+    'Webアプリケーション開発、フルスタック開発、TypeScript、React、Next.js、Vite、Astro、Node.js、Express、Rust、Ruby on Rails、PostgreSQL、Firebase、Supabase、AWS、Vercel、Docker、Tailwind CSS、WebSocket、MQTT、Vitest、Playwright',
   companyName: '社名',
   planckUnits: '株式会社 PlanckUnits (プランクユニッツ)',
   CEO: '代表取締役',

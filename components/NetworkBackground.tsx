@@ -1,28 +1,20 @@
 import { useEffect, useRef } from 'react'
 
-interface Node {
-  x: number
-  y: number
-  vx: number
-  vy: number
-  radius: number
-}
-
 interface NetworkBackgroundProps {
-  nodeCount?: number
-  connectionDistance?: number
-  speed?: number
+  fontSize?: number
+  spacing?: number
+  opacity?: number
 }
 
 const NetworkBackground: React.FC<NetworkBackgroundProps> = ({
-  nodeCount = 50,
-  connectionDistance = 150,
-  speed = 0.5,
+  fontSize = 12,
+  spacing = 15,
+  opacity = 0.15,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const nodesRef = useRef<Node[]>([])
-  const animationFrameRef = useRef<number | undefined>(undefined)
-  const mouseRef = useRef({ x: 0, y: 0 })
+  const mousePosRef = useRef({ x: -1000, y: -1000 })
+  const animationFrameRef = useRef<number>()
+  const charsGridRef = useRef<string[][]>([])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -34,129 +26,109 @@ const NetworkBackground: React.FC<NetworkBackgroundProps> = ({
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
+      initializeGrid()
     }
 
-    const createNodes = () => {
-      const nodes: Node[] = []
-      for (let i = 0; i < nodeCount; i++) {
-        nodes.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * speed,
-          vy: (Math.random() - 0.5) * speed,
-          radius: Math.random() * 2 + 1,
-        })
+    const getRandomCharacter = (): string => {
+      const rand = Math.random()
+
+      if (rand < 0.5) {
+        return Math.random() < 0.5 ? '0' : '1'
       }
-      nodesRef.current = nodes
+
+      if (rand < 0.625) {
+        return Math.floor(Math.random() * 8).toString()
+      }
+
+      if (rand < 0.6875) {
+        const hex = '0123456789ABCDEF'
+        return hex[Math.floor(Math.random() * hex.length)]
+      }
+
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+      return chars[Math.floor(Math.random() * chars.length)]
     }
 
-    const updateNodes = () => {
-      nodesRef.current.forEach((node) => {
-        node.x += node.vx
-        node.y += node.vy
-
-        // Bounce off edges
-        if (node.x < 0 || node.x > canvas.width) node.vx *= -1
-        if (node.y < 0 || node.y > canvas.height) node.vy *= -1
-
-        // Keep in bounds
-        node.x = Math.max(0, Math.min(canvas.width, node.x))
-        node.y = Math.max(0, Math.min(canvas.height, node.y))
-      })
-    }
-
-    const drawNodes = () => {
-      nodesRef.current.forEach((node) => {
-        ctx.beginPath()
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(74, 155, 127, 0.8)'
-        ctx.fill()
-
-        // Glow effect
-        const gradient = ctx.createRadialGradient(
-          node.x,
-          node.y,
-          0,
-          node.x,
-          node.y,
-          node.radius * 3
-        )
-        gradient.addColorStop(0, 'rgba(0, 212, 170, 0.2)')
-        gradient.addColorStop(1, 'rgba(0, 212, 170, 0)')
-        ctx.fillStyle = gradient
-        ctx.fill()
-      })
-    }
-
-    const drawConnections = () => {
-      nodesRef.current.forEach((nodeA, i) => {
-        nodesRef.current.slice(i + 1).forEach((nodeB) => {
-          const dx = nodeA.x - nodeB.x
-          const dy = nodeA.y - nodeB.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < connectionDistance) {
-            const opacity = (1 - distance / connectionDistance) * 0.5
-            ctx.beginPath()
-            ctx.moveTo(nodeA.x, nodeA.y)
-            ctx.lineTo(nodeB.x, nodeB.y)
-            ctx.strokeStyle = `rgba(74, 155, 127, ${opacity})`
-            ctx.lineWidth = 1
-            ctx.stroke()
-          }
-        })
-
-        // Connect to mouse
-        const dx = nodeA.x - mouseRef.current.x
-        const dy = nodeA.y - mouseRef.current.y
-        const distance = Math.sqrt(dx * dx + dy * dy)
-
-        if (distance < connectionDistance * 1.5) {
-          const opacity = (1 - distance / (connectionDistance * 1.5)) * 0.3
-          ctx.beginPath()
-          ctx.moveTo(nodeA.x, nodeA.y)
-          ctx.lineTo(mouseRef.current.x, mouseRef.current.y)
-          ctx.strokeStyle = `rgba(0, 212, 170, ${opacity})`
-          ctx.lineWidth = 2
-          ctx.stroke()
+    const initializeGrid = () => {
+      const cols = Math.ceil(canvas.width / spacing)
+      const rows = Math.ceil(canvas.height / spacing)
+      charsGridRef.current = []
+      for (let row = 0; row < rows; row++) {
+        charsGridRef.current[row] = []
+        for (let col = 0; col < cols; col++) {
+          charsGridRef.current[row][col] = getRandomCharacter()
         }
-      })
+      }
     }
 
-    const animate = () => {
+    const drawPattern = (mx: number, my: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.font = `${fontSize}px monospace`
 
-      updateNodes()
-      drawConnections()
-      drawNodes()
+      const cols = Math.ceil(canvas.width / spacing)
+      const rows = Math.ceil(canvas.height / spacing)
 
-      animationFrameRef.current = requestAnimationFrame(animate)
-    }
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          const x = col * spacing
+          const y = row * spacing + fontSize
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY }
+          const dx = x - mx
+          const dy = y - my
+          const distance = Math.sqrt(dx * dx + dy * dy)
+          const maxDistance = 150
+
+          let currentOpacity = opacity
+          let color = '120, 140, 150'
+          let char = charsGridRef.current[row]?.[col] || '0'
+
+          if (distance < maxDistance) {
+            const intensity = 1 - distance / maxDistance
+            currentOpacity = opacity + intensity * 0.4
+            const r = Math.floor(17 + intensity * 100)
+            const g = Math.floor(109 + intensity * 85)
+            const b = Math.floor(147 + intensity * 70)
+            color = `${r}, ${g}, ${b}`
+
+            if (Math.random() < intensity * 0.3) {
+              char = getRandomCharacter()
+              charsGridRef.current[row][col] = char
+            }
+          }
+
+          ctx.fillStyle = `rgba(${color}, ${currentOpacity})`
+          ctx.fillText(char, x, y)
+        }
+      }
     }
 
     const handleResize = () => {
       resizeCanvas()
-      createNodes()
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mousePosRef.current = { x: e.clientX, y: e.clientY }
+    }
+
+    const animate = () => {
+      drawPattern(mousePosRef.current.x, mousePosRef.current.y)
+      animationFrameRef.current = requestAnimationFrame(animate)
     }
 
     resizeCanvas()
-    createNodes()
     animate()
 
     window.addEventListener('resize', handleResize)
     window.addEventListener('mousemove', handleMouseMove)
 
     return () => {
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('mousemove', handleMouseMove)
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current)
       }
-      window.removeEventListener('resize', handleResize)
-      window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [nodeCount, connectionDistance, speed])
+  }, [fontSize, spacing, opacity])
 
   return (
     <canvas

@@ -2,21 +2,25 @@
 // All design decisions centralized here
 
 export const colors = {
-  // Primary palette (keeping #223740 as base)
+  // Primary palette (blue theme)
   primary: {
-    900: '#162329',
-    800: '#1a2d35',
-    700: '#223740', // Current main color
-    600: '#2a4550',
-    500: '#3a5a6a',
+    900: '#116D93', // Dark blue
+    800: '#2D4851', // Dark gray-blue
+    700: '#4A7890', // Medium-dark blue
+    600: '#6698B3', // Medium blue
+    500: '#91C2D6', // Main blue
+    400: '#9FCDDC', // Light blue
+    300: '#7DBFD9', // Light blue accent
+    200: '#B8DCE8', // Very light blue
+    100: '#D9EDF4', // Pale blue
   },
 
-  // Accent colors (warmth + tech feel)
+  // Accent colors (complementary blues)
   accent: {
     teal: '#4A9B7F',
     tealLight: '#5CB896',
     coral: '#E8A87C',
-    glow: '#00D4AA', // For future cyber animations
+    glow: '#7DBFD9', // Light blue glow
   },
 
   // Neutral palette

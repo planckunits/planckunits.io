@@ -2,5 +2,6 @@ node_modules
 out
 .next
 .envrc
+.env.local
 
 TECH_STACK.md

@@ -3,11 +3,26 @@
 
 :root {
   /* Primary Colors */
-  --color-primary: #667eea;
-  --color-primary-dark: #5a67d8;
-  --color-primary-light: #7c8ef7;
+  --color-primary: #91C2D6;
+  --color-primary-dark: #116D93;
+  --color-primary-light: #7DBFD9;
+  --color-primary-900: #116D93;
+  --color-primary-800: #2D4851;
+  --color-primary-700: #4A7890;
+  --color-primary-600: #6698B3;
+  --color-primary-500: #91C2D6;
 
   /* Neutral Colors */
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
   --color-gray-200: #e5e7eb;
@@ -19,6 +34,15 @@
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
   --color-white: #ffffff;
+
+  /* Accent Colors */
+  --color-accent-teal: #4A9B7F;
+  --color-accent-teal-light: #5CB896;
+
+  /* Category Colors */
+  --color-category-iot: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --color-category-web: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --color-category-consulting: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 
   /* Typography */
   --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
@@ -78,6 +102,7 @@
 
 html {
   scroll-behavior: smooth;
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -90,6 +115,7 @@ body {
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
 }
 
 /* Reduced Motion */

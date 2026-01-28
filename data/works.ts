@@ -1,5 +1,28 @@
 export type Category = 'all' | 'iot' | 'web' | 'consulting'
 
+export type TechStack =
+  | 'aws'
+  | 'gcp'
+  | 'firebase'
+  | 'react'
+  | 'nextjs'
+  | 'rails'
+  | 'laravel'
+  | 'nodejs'
+  | 'python'
+  | 'php'
+  | 'postgresql'
+  | 'mysql'
+  | 'redis'
+  | 'mqtt'
+  | 'webrtc'
+  | 'websocket'
+  | 'rtsp'
+  | 'pytorch'
+  | 'opencv'
+  | 'docker'
+  | 'raspberrypi'
+
 export interface Work {
   id: string
   titleJa: string
@@ -7,7 +30,7 @@ export interface Work {
   descriptionJa: string
   descriptionEn: string
   category: Exclude<Category, 'all'>
-  client?: string
+  technologies?: TechStack[]
   link?: string
 }
 
@@ -21,7 +44,7 @@ export const works: Work[] = [
     descriptionEn:
       'Information management system for multiple companies. Centralized data management and operational efficiency.',
     category: 'web',
-    client: '株式会社ベスト、株式会社エナジア、タカヤ株式会社',
+    technologies: ['react', 'nodejs', 'postgresql'],
   },
   {
     id: 'pocket-farm',
@@ -32,7 +55,7 @@ export const works: Work[] = [
     descriptionEn:
       'IoT environmental control system for agriculture. Automatic control of temperature, humidity, and lighting.',
     category: 'iot',
-    client: '株式会社細野ファーム',
+    technologies: ['raspberrypi', 'rails', 'react', 'mqtt', 'postgresql', 'firebase'],
     link: 'https://pocketfarm.planckunits.io/houses/0',
   },
   {
@@ -44,7 +67,7 @@ export const works: Work[] = [
     descriptionEn:
       'Early landslide detection using ground sensors. Real-time monitoring ensures safety.',
     category: 'iot',
-    client: '株式会社リプロ',
+    technologies: ['raspberrypi', 'mqtt', 'firebase', 'react'],
   },
   {
     id: 'shift-management',
@@ -55,6 +78,7 @@ export const works: Work[] = [
     descriptionEn:
       'Web application for efficient employee shift management. Integrates with attendance systems.',
     category: 'web',
+    technologies: ['react', 'nodejs'],
   },
   {
     id: 'iot-consulting',
@@ -75,6 +99,7 @@ export const works: Work[] = [
     descriptionEn:
       'IoT solution for safety management and efficiency at construction sites. Sensor-based hazard detection.',
     category: 'iot',
+    technologies: ['raspberrypi', 'mqtt', 'firebase'],
   },
   {
     id: 'mobility-tracking',
@@ -85,6 +110,7 @@ export const works: Work[] = [
     descriptionEn:
       'Real-time mobility tracking. Power control and sensor data collection via smartphone.',
     category: 'iot',
+    technologies: ['raspberrypi', 'react', 'firebase'],
   },
   {
     id: 'remote-camera',
@@ -95,6 +121,7 @@ export const works: Work[] = [
     descriptionEn:
       'Real-time video streaming for outdoor sites. Supports PTZ control and time-lapse capture.',
     category: 'iot',
+    technologies: ['raspberrypi', 'rtsp', 'nodejs'],
   },
   {
     id: 'qr-key',
@@ -105,16 +132,18 @@ export const works: Work[] = [
     descriptionEn:
       'Electronic key system for heavy machinery. Efficient key management for rotating site staff.',
     category: 'iot',
+    technologies: ['raspberrypi', 'react'],
   },
   {
     id: 'touch-panel',
-    titleJa: 'タッチパネル付きLinux装置',
-    titleEn: 'Linux Device with Touch Panel',
+    titleJa: 'タッチパネル式組込みデバイス',
+    titleEn: 'Touch Panel Embedded Device',
     descriptionJa:
-      'タッチパネル操作可能なLinuxベースの組込み装置。クラウド経由での遠隔管理に対応。',
+      'Linuxベースのタッチパネル式組込みデバイス。クラウド経由での遠隔管理とリアルタイム制御に対応。',
     descriptionEn:
-      'Linux-based embedded device with touch panel. Supports remote management via cloud.',
+      'Linux-based touch panel embedded device. Supports remote management and real-time control via cloud.',
     category: 'iot',
+    technologies: ['python', 'mqtt', 'firebase'],
   },
   {
     id: 'medical-location',
@@ -125,6 +154,84 @@ export const works: Work[] = [
     descriptionEn:
       'Real-time location management for hospital assets and staff. Improves efficiency and patient care.',
     category: 'iot',
+    technologies: ['react', 'nodejs', 'websocket'],
+  },
+  {
+    id: 'cloud-video-streaming',
+    titleJa: 'IPカメラクラウド配信システム',
+    titleEn: 'IP Camera Cloud Streaming System',
+    descriptionJa:
+      'RTSP映像をクラウド経由でHLS配信。AWS Kinesis Video Streamsを活用した映像アーカイブとリアルタイム視聴に対応。',
+    descriptionEn:
+      'Cloud-based RTSP to HLS streaming. Video archiving and real-time viewing using AWS Kinesis Video Streams.',
+    category: 'iot',
+    technologies: ['aws', 'nodejs', 'laravel', 'redis', 'rtsp', 'docker'],
+  },
+  {
+    id: 'transit-operation',
+    titleJa: '公共交通運行管理システム',
+    titleEn: 'Public Transit Operation Management',
+    descriptionJa:
+      '車載IoT機器によるGPS追跡、運行ダイヤ管理、遅延検知。リアルタイム位置情報とセンサーデータをBigQueryで分析。',
+    descriptionEn:
+      'GPS tracking with onboard IoT devices, schedule management, and delay detection. Real-time location and sensor data analysis with BigQuery.',
+    category: 'iot',
+    technologies: ['raspberrypi', 'gcp', 'firebase', 'react', 'mqtt'],
+  },
+  {
+    id: 'environmental-sensor',
+    titleJa: '環境センサー統合プラットフォーム',
+    titleEn: 'Environmental Sensor Integration Platform',
+    descriptionJa:
+      '気象データ、路面状態、大気圧などの環境データをリアルタイム監視。地図プロットとグラフ表示で異常値を即座に検知。',
+    descriptionEn:
+      'Real-time monitoring of weather, road conditions, and atmospheric pressure. Instant anomaly detection with map plotting and graphs.',
+    category: 'iot',
+    technologies: ['firebase', 'react'],
+  },
+  {
+    id: 'log-aggregation',
+    titleJa: 'ログ集約・可視化システム',
+    titleEn: 'Log Aggregation & Visualization System',
+    descriptionJa:
+      'IoTデバイスやサーバーのログを統合管理。MQTT、SFTP、Cloud Loggingからデータ収集し、OpenAI APIで異常検知と自動要約。',
+    descriptionEn:
+      'Unified log management for IoT devices and servers. Data collection from MQTT, SFTP, and Cloud Logging with AI-powered anomaly detection.',
+    category: 'web',
+    technologies: ['firebase', 'react', 'nodejs', 'mqtt'],
+  },
+  {
+    id: 'ai-person-detection',
+    titleJa: 'AI人物検知カメラシステム',
+    titleEn: 'AI Person Detection Camera System',
+    descriptionJa:
+      'WebRTCリアルタイム配信とPyTorch/Transformersによる人物検知。エッジデバイスで低遅延AI推論を実現。',
+    descriptionEn:
+      'Real-time WebRTC streaming with PyTorch/Transformers person detection. Low-latency AI inference on edge devices.',
+    category: 'iot',
+    technologies: ['python', 'pytorch', 'opencv', 'webrtc', 'docker', 'react'],
+  },
+  {
+    id: 'wireless-monitoring',
+    titleJa: '無線通信品質モニタリングシステム',
+    titleEn: 'Wireless Quality Monitoring System',
+    descriptionJa:
+      'RSSI（受信信号強度）、パケットエラーレート、接続状態をリアルタイム監視。通信品質の可視化とアラート通知。',
+    descriptionEn:
+      'Real-time monitoring of RSSI, packet error rate, and connection status. Communication quality visualization and alerts.',
+    category: 'iot',
+    technologies: ['nextjs', 'react', 'nodejs', 'mqtt', 'firebase', 'websocket'],
+  },
+  {
+    id: 'video-log-management',
+    titleJa: '映像ログ管理システム',
+    titleEn: 'Video Log Management System',
+    descriptionJa:
+      '映像ログの自動アップロード、サムネイル生成、日時・場所検索。WBGT（暑さ指数）連動で高温アラート通知。',
+    descriptionEn:
+      'Automatic video log upload, thumbnail generation, and search by date/location. High-temperature alerts linked to WBGT index.',
+    category: 'iot',
+    technologies: ['php', 'mysql', 'docker'],
   },
 ]
 
@@ -136,7 +243,7 @@ export const categoryLabels = {
 }
 
 export const categoryColors: Record<Exclude<Category, 'all'>, string> = {
-  iot: 'var(--color-category-iot)',
-  web: 'var(--color-category-web)',
-  consulting: 'var(--color-category-consulting)',
+  iot: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  web: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+  consulting: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
 }

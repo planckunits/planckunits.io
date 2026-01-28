@@ -1,5 +1,6 @@
 import { useLocale } from '../i18n/useLocale'
 import { Work, categoryLabels, categoryColors } from '../data/works'
+import TechIcons from './TechIcons'
 
 type Props = {
   work: Work
@@ -49,24 +50,30 @@ const WorkCard: React.FC<Props> = ({ work }) => {
       <CardWrapper className="card" {...cardProps}>
         <div
           className="thumbnail"
-          style={{ backgroundColor: categoryColors[work.category] }}
+          style={{ background: categoryColors[work.category] }}
         >
-          {categoryIcons[work.category]}
+          <div className="category-icon">{categoryIcons[work.category]}</div>
+          {/* 技術アイコン（一旦非表示）
+          {work.technologies && work.technologies.length > 0 && (
+            <div className="tech-icons-wrapper">
+              <TechIcons technologies={work.technologies} />
+            </div>
+          )}
+          */}
         </div>
         <div className="content">
-          <h3>{title}</h3>
-          <p>{description}</p>
-          <div className="footer">
+          <div className="header">
+            <h3>{title}</h3>
             <span
               className="category-badge"
               style={{
-                backgroundColor: categoryColors[work.category],
+                background: categoryColors[work.category],
               }}
             >
               {categoryLabel}
             </span>
-            {work.client && <span className="client">{work.client}</span>}
           </div>
+          <p>{description}</p>
         </div>
       </CardWrapper>
 
@@ -77,24 +84,70 @@ const WorkCard: React.FC<Props> = ({ work }) => {
           background: var(--color-white);
           border-radius: var(--radius-lg);
           overflow: hidden;
-          box-shadow: var(--shadow-sm);
-          transition: all var(--transition-normal);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06),
+            0 1px 2px rgba(0, 0, 0, 0.04);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           text-decoration: none;
           color: inherit;
+          border: 1px solid var(--color-neutral-200);
         }
 
         a.card:hover {
-          transform: translateY(-4px);
-          box-shadow: var(--shadow-lg);
+          transform: translateY(-6px);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1),
+            0 8px 16px rgba(0, 0, 0, 0.06);
+          border-color: var(--color-neutral-300);
         }
 
         .thumbnail {
           aspect-ratio: 16 / 9;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
+          padding: var(--space-6);
           color: var(--color-white);
-          opacity: 0.9;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .thumbnail::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(
+            circle at 30% 50%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 60%
+          );
+          pointer-events: none;
+        }
+
+        .category-icon {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0.95;
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+          transition: all var(--transition-normal);
+        }
+
+        a.card:hover .category-icon {
+          transform: scale(1.05);
+          opacity: 1;
+        }
+
+        .tech-icons-wrapper {
+          position: absolute;
+          bottom: var(--space-3);
+          left: var(--space-3);
+          right: var(--space-3);
+          display: flex;
+          justify-content: center;
         }
 
         .content {
@@ -104,40 +157,40 @@ const WorkCard: React.FC<Props> = ({ work }) => {
           flex: 1;
         }
 
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: var(--space-3);
+          margin-bottom: var(--space-3);
+        }
+
         h3 {
           font-size: var(--text-lg);
-          font-weight: 600;
+          font-weight: 700;
           color: var(--color-neutral-900);
-          margin: 0 0 var(--space-2);
-          line-height: 1.3;
+          margin: 0;
+          line-height: 1.4;
+          letter-spacing: -0.01em;
+          flex: 1;
         }
 
         p {
           font-size: var(--text-sm);
-          color: var(--color-neutral-700);
-          line-height: 1.5;
-          margin: 0 0 var(--space-4);
+          color: var(--color-neutral-600);
+          line-height: 1.6;
+          margin: 0;
           flex: 1;
-        }
-
-        .footer {
-          display: flex;
-          align-items: center;
-          gap: var(--space-2);
-          flex-wrap: wrap;
         }
 
         .category-badge {
           padding: var(--space-1) var(--space-2);
-          border-radius: var(--radius-sm);
+          border-radius: var(--radius-full);
           font-size: var(--text-xs);
-          font-weight: 600;
+          font-weight: 700;
           color: var(--color-white);
-        }
-
-        .client {
-          font-size: var(--text-xs);
-          color: var(--color-neutral-500);
+          letter-spacing: 0.02em;
+          flex-shrink: 0;
         }
 
         @media (max-width: 640px) {
@@ -147,6 +200,11 @@ const WorkCard: React.FC<Props> = ({ work }) => {
 
           p {
             font-size: var(--text-sm);
+          }
+
+          .header {
+            flex-direction: column;
+            gap: var(--space-2);
           }
         }
       `}</style>
