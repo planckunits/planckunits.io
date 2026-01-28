@@ -5,7 +5,7 @@ const locales = {
   seeWorks: '実績を見る',
 
   // Hero
-  heroHeadline: 'スタートアップの\nMVP開発、お任せください',
+  heroHeadline: 'スタートアップの\nPoC開発、お任せください',
   heroSubheadline:
     'IoTからWebアプリまで、ハードウェアからクラウドまで一貫した開発体制でアイデアを形にします。',
   heroCtaPrimary: 'お問い合わせ',
@@ -80,6 +80,10 @@ const locales = {
     'NPO法人サルどこネット',
     '株式会社細野ファーム',
     '学校法人東京電機大',
+    '株式会社ジザイエ',
+    '一般社団法人MIKATAプロフェッショナルズ',
+    '株式会社ジャストプランニング・システム',
+    '株式会社 ケイエムアドシステム',
   ],
   banks: '取引銀行',
   banksConst: ['三菱UFJ銀行千住支店', '足立成和信用金庫旭町支店'],
