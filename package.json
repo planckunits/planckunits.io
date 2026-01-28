@@ -11,10 +11,10 @@
     "url": "https://elzup.com"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=22"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next dev --port 4000",
     "build": "next build",
     "export": "next build && next export && cp _redirects out",
     "start": "next start",
@@ -24,19 +24,19 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "framer-motion": "^12.24.0",
-    "next": "^12.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-ga": "^3.3.0",
+    "framer-motion": "^12.29.2",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-ga": "^3.3.1",
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.21",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.13",
-    "eslint": "^8.10.0",
-    "eslint-config-next": "^12.1.0",
-    "typescript": "^4.6.2"
+    "@types/node": "^25.0.10",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.6",
+    "typescript": "^5.9.3"
   }
 }
