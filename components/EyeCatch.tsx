@@ -55,7 +55,7 @@ const EyeCatch = () => {
         }
 
         .logo-container img {
-          width: 200px;
+          width: 400px;
           height: auto;
         }
 
@@ -120,7 +120,7 @@ const EyeCatch = () => {
           }
 
           .logo-container img {
-            width: 150px;
+            width: 280px;
           }
 
           h1 {
