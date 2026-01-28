@@ -2,24 +2,25 @@ import Head from 'next/head'
 import * as React from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import NetworkBackground from './NetworkBackground'
 
 type Props = { title?: string }
 
 const Layout: React.FC<Props> = ({ children }) => (
-  <div>
+  <div className="app-container">
     <Head>
-      <title>PlanckUnits</title>
+      <title>PlanckUnits - Quantum Tech Venture</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta
         name="description"
-        content="株式会社プランクユニッツの会社概要を掲載しています。"
+        content="株式会社プランクユニッツ - 最先端技術で未来を創造するベンチャー企業"
       />
 
       <meta property="og:title" content="株式会社プランクユニッツ" />
       <meta
         property="og:description"
-        content="株式会社プランクユニッツの会社概要を掲載しています。"
+        content="株式会社プランクユニッツ - 最先端技術で未来を創造するベンチャー企業"
       />
       <meta name="format-detection" content="telephone=no" />
 
@@ -29,8 +30,17 @@ const Layout: React.FC<Props> = ({ children }) => (
         href="/static/favicon.ico"
       />
     </Head>
+
+    <NetworkBackground />
     <Header />
+
     <style jsx>{`
+      .app-container {
+        position: relative;
+        min-height: 100vh;
+        background: var(--gradient-dark);
+      }
+
       section {
         align-items: center;
         display: flex;
@@ -39,7 +49,9 @@ const Layout: React.FC<Props> = ({ children }) => (
       }
     `}</style>
 
-    {children}
+    <div style={{ position: 'relative', zIndex: 1 }}>
+      {children}
+    </div>
 
     <Footer />
   </div>

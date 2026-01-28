@@ -1,4 +1,5 @@
 import { useLocale } from '../i18n/useLocale'
+import { motion } from 'framer-motion'
 import Section from './Section'
 
 const officeUrl =
@@ -72,8 +73,18 @@ const AboutSection = () => {
     <Section name="About" id="about">
       <div className="about-grid">
         {infoItems.map((item, index) => (
-          <div key={index} className="info-item">
-            <div className="icon-wrapper">{item.icon}</div>
+          <motion.div
+            key={index}
+            className="info-item glass-dark hover-glow"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05, y: -5 }}
+          >
+            <div className="icon-wrapper">
+              <div className="icon-glow">{item.icon}</div>
+            </div>
             <div className="info-content">
               <span className="label">{item.label}</span>
               {item.link ? (
@@ -81,7 +92,7 @@ const AboutSection = () => {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="value link"
+                  className="value link neon-cyan"
                 >
                   {item.value}
                 </a>
@@ -89,24 +100,38 @@ const AboutSection = () => {
                 <span className="value">{item.value}</span>
               )}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      <div className="clients-section">
-        <h3>
+      <motion.div
+        className="clients-section glass-dark"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h3 className="gradient-text">
           {t.clients.map((v, i) => (
             <span key={i}>{v}</span>
           ))}
         </h3>
         <div className="clients-grid">
           {t.clientsConst.map((client, i) => (
-            <span key={i} className="client-badge">
+            <motion.span
+              key={i}
+              className="client-badge glass"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.1, boxShadow: 'var(--shadow-neon-cyan)' }}
+            >
               {client}
-            </span>
+            </motion.span>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       <style jsx>{`
         .about-grid {
@@ -120,22 +145,26 @@ const AboutSection = () => {
           display: flex;
           align-items: flex-start;
           gap: var(--space-4);
-          padding: var(--space-5);
-          background: var(--color-white);
-          border-radius: var(--radius-md);
-          box-shadow: var(--shadow-sm);
+          padding: var(--space-6);
+          border-radius: var(--radius-lg);
+          transition: all var(--transition-normal);
+          cursor: pointer;
         }
 
         .icon-wrapper {
           flex-shrink: 0;
-          width: 40px;
-          height: 40px;
+          width: 50px;
+          height: 50px;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: var(--color-neutral-100);
           border-radius: var(--radius-md);
-          color: var(--color-primary-700);
+          position: relative;
+        }
+
+        .icon-glow {
+          color: var(--color-accent-cyan);
+          filter: drop-shadow(0 0 10px var(--color-accent-cyan));
         }
 
         .info-content {
@@ -147,37 +176,51 @@ const AboutSection = () => {
 
         .label {
           font-size: var(--text-sm);
-          color: var(--color-neutral-500);
+          color: rgba(255, 255, 255, 0.5);
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          font-weight: 600;
         }
 
         .value {
           font-size: var(--text-base);
-          color: var(--color-neutral-900);
-          font-weight: 500;
+          color: rgba(255, 255, 255, 0.95);
+          font-weight: 600;
         }
 
         .value.link {
-          color: var(--color-primary-700);
           text-decoration: none;
-          transition: color var(--transition-fast);
+          transition: all var(--transition-fast);
+          position: relative;
         }
 
-        .value.link:hover {
-          color: var(--color-accent-teal);
+        .value.link::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--color-accent-cyan);
+          transition: width var(--transition-normal);
+          box-shadow: 0 0 10px var(--color-accent-cyan);
+        }
+
+        .value.link:hover::after {
+          width: 100%;
         }
 
         .clients-section {
-          background: var(--color-white);
-          border-radius: var(--radius-lg);
-          padding: var(--space-8);
-          box-shadow: var(--shadow-sm);
+          border-radius: var(--radius-xl);
+          padding: var(--space-10);
+          box-shadow: var(--shadow-neon-purple);
         }
 
         .clients-section h3 {
-          font-size: var(--text-lg);
-          color: var(--color-neutral-700);
-          margin: 0 0 var(--space-5);
+          font-size: var(--text-2xl);
+          margin: 0 0 var(--space-8);
           text-align: center;
+          font-weight: 800;
         }
 
         .clients-section h3 span {
@@ -187,16 +230,19 @@ const AboutSection = () => {
         .clients-grid {
           display: flex;
           flex-wrap: wrap;
-          gap: var(--space-2);
+          gap: var(--space-3);
           justify-content: center;
         }
 
         .client-badge {
-          padding: var(--space-2) var(--space-4);
-          background: var(--color-neutral-100);
+          padding: var(--space-3) var(--space-5);
           border-radius: var(--radius-full);
           font-size: var(--text-sm);
-          color: var(--color-neutral-700);
+          color: rgba(255, 255, 255, 0.9);
+          font-weight: 600;
+          transition: all var(--transition-normal);
+          cursor: pointer;
+          border: 1px solid rgba(0, 240, 255, 0.3);
         }
 
         @media (max-width: 768px) {

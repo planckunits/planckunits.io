@@ -28,9 +28,27 @@ const Section: React.FC<Props> = ({ children, name, id }) => (
       h2 {
         text-align: center;
         font-size: var(--text-4xl);
-        font-weight: 600;
+        font-weight: 800;
         margin: 0 0 var(--space-12);
-        color: var(--color-primary-700);
+        background: var(--gradient-cyber);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        position: relative;
+      }
+
+      h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: var(--gradient-cyber);
+        box-shadow: 0 0 10px var(--color-accent-cyan);
       }
 
       @media (max-width: 1024px) {

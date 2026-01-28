@@ -1,18 +1,24 @@
 /* Global CSS Variables - PlanckUnits.io Design System */
+/* Theme: Quantum Tech Venture - Cyberpunk × Minimalism */
 
 :root {
-  /* Primary Colors */
-  --color-primary-900: #162329;
-  --color-primary-800: #1a2d35;
-  --color-primary-700: #223740;
-  --color-primary-600: #2a4550;
-  --color-primary-500: #3a5a6a;
+  /* Primary Colors - Deep Tech Blue */
+  --color-primary-900: #0a0e27;
+  --color-primary-800: #0f1638;
+  --color-primary-700: #1a1f4d;
+  --color-primary-600: #232d5e;
+  --color-primary-500: #2d3a7a;
 
-  /* Accent Colors */
+  /* Accent Colors - Neon Glow */
+  --color-accent-cyan: #00f0ff;
+  --color-accent-pink: #ff006e;
+  --color-accent-purple: #8b5cf6;
   --color-accent-teal: #4a9b7f;
   --color-accent-teal-light: #5cb896;
   --color-accent-coral: #e8a87c;
   --color-accent-glow: #00d4aa;
+  --color-accent-neon-green: #39ff14;
+  --color-accent-electric-blue: #0ff;
 
   /* Neutral Colors */
   --color-neutral-900: #1a1a1a;
@@ -66,12 +72,20 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Shadows */
+  /* Shadows & Glows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
   --shadow-glow: 0 0 20px rgba(0, 212, 170, 0.3);
+  --shadow-neon-cyan: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.3);
+  --shadow-neon-pink: 0 0 20px rgba(255, 0, 110, 0.5), 0 0 40px rgba(255, 0, 110, 0.3);
+  --shadow-neon-purple: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+
+  /* Gradients */
+  --gradient-cyber: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 50%, #ff006e 100%);
+  --gradient-dark: linear-gradient(180deg, #0a0e27 0%, #1a1f4d 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -137,6 +151,111 @@ a:hover {
 
 /* Selection */
 ::selection {
-  background-color: var(--color-accent-teal);
-  color: var(--color-white);
+  background-color: var(--color-accent-cyan);
+  color: var(--color-primary-900);
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(10, 14, 39, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Neon Glow Effects */
+.neon-cyan {
+  color: var(--color-accent-cyan);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.8),
+               0 0 20px rgba(0, 240, 255, 0.5),
+               0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.neon-pink {
+  color: var(--color-accent-pink);
+  text-shadow: 0 0 10px rgba(255, 0, 110, 0.8),
+               0 0 20px rgba(255, 0, 110, 0.5),
+               0 0 30px rgba(255, 0, 110, 0.3);
+}
+
+.neon-purple {
+  color: var(--color-accent-purple);
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.8),
+               0 0 20px rgba(139, 92, 246, 0.5),
+               0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+/* Hover Glow Animation */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6),
+                0 0 30px rgba(0, 240, 255, 0.4);
+  }
+}
+
+.hover-glow {
+  transition: all var(--transition-normal);
+}
+
+.hover-glow:hover {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitch {
+  position: relative;
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--gradient-cyber);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

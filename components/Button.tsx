@@ -67,34 +67,60 @@ const Button: React.FC<Props> = ({
 
         /* Variants */
         .btn-primary {
-          background: var(--color-primary-700);
+          background: var(--gradient-cyber);
           color: var(--color-white);
+          box-shadow: var(--shadow-neon-cyan);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .btn-primary::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          transform: translate(-50%, -50%);
+          transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+          width: 300px;
+          height: 300px;
         }
 
         .btn-primary:hover {
-          background: var(--color-primary-600);
-          transform: translateY(-1px);
-          box-shadow: var(--shadow-md);
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-neon-cyan), 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         .btn-secondary {
-          background: transparent;
-          color: var(--color-primary-700);
-          border: 2px solid var(--color-primary-700);
+          background: rgba(10, 14, 39, 0.5);
+          backdrop-filter: blur(10px);
+          color: var(--color-accent-cyan);
+          border: 2px solid var(--color-accent-cyan);
+          box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
 
         .btn-secondary:hover {
-          background: var(--color-primary-700);
-          color: var(--color-white);
+          background: rgba(0, 240, 255, 0.1);
+          border-color: var(--color-accent-pink);
+          color: var(--color-accent-pink);
+          box-shadow: var(--shadow-neon-pink);
+          transform: translateY(-3px);
         }
 
         .btn-ghost {
           background: transparent;
-          color: var(--color-primary-700);
+          color: rgba(255, 255, 255, 0.8);
         }
 
         .btn-ghost:hover {
-          background: var(--color-neutral-100);
+          background: rgba(255, 255, 255, 0.05);
+          color: var(--color-accent-cyan);
         }
       `}</style>
     </>
