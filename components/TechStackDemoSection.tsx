@@ -17,7 +17,7 @@ const STORAGE_KEY = 'tech-stack-node-positions'
 
 const TechStackDemoSection = () => {
   const [requirements, setRequirements] = useState('')
-  const [suggestion, setSuggestion] = useState('')
+  const [suggestedStack, setSuggestedStack] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(false)
   const initialData = useMemo(() => {
     const newNodes: Node[] = []
@@ -464,37 +464,6 @@ const TechStackDemoSection = () => {
       },
     })
 
-    newNodes.push({
-      id: 'rd_tools',
-      type: 'default',
-      position: { x: 690, y: 700 },
-      data: {
-        label: (
-          <div>
-            <div
-              style={{
-                fontWeight: 'bold',
-                marginBottom: '6px',
-                fontSize: '13px',
-              }}
-            >
-              R&D Tools
-            </div>
-            <div style={{ fontSize: '10px', lineHeight: 1.5 }}>
-              {techStackData.technologies.rd_tools.join(' / ')}
-            </div>
-          </div>
-        ),
-      },
-      style: {
-        background: '#e0e7ff',
-        border: '2px solid #6366f1',
-        borderRadius: '10px',
-        padding: '12px',
-        minWidth: '150px',
-      },
-    })
-
     // === Data Format Node ===
     newNodes.push({
       id: 'data_formats',
@@ -654,22 +623,6 @@ const TechStackDemoSection = () => {
       style: dashedEdgeStyle,
     })
 
-    // R&D connections
-    newEdges.push({
-      id: 'e16',
-      source: 'backend',
-      target: 'rd_tools',
-      animated: false,
-      style: dashedEdgeStyle,
-    })
-    newEdges.push({
-      id: 'e17',
-      source: 'database',
-      target: 'rd_tools',
-      animated: false,
-      style: dashedEdgeStyle,
-    })
-
     // Data format connections
     newEdges.push({
       id: 'e18',
@@ -719,6 +672,317 @@ const TechStackDemoSection = () => {
     }
   }, [nodes])
 
+  // Generate suggested stack nodes and edges
+  const suggestedNodes = useMemo(() => {
+    if (!suggestedStack?.stack) return []
+
+    const newNodes: Node[] = []
+    const stack = suggestedStack.stack
+    let yOffset = 50
+
+    // Color schemes for different categories
+    const categoryStyles: Record<
+      string,
+      { background: string; border: string }
+    > = {
+      iot_device: { background: '#fef3c7', border: '#f59e0b' },
+      hardware_control: { background: '#fed7aa', border: '#ea580c' },
+      video: { background: '#fce7f3', border: '#ec4899' },
+      backend: { background: '#dbeafe', border: '#3b82f6' },
+      database: { background: '#e0e7ff', border: '#6366f1' },
+      ai_ml: { background: '#fce7f3', border: '#ec4899' },
+      frontend: { background: '#dcfce7', border: '#22c55e' },
+      visualization: { background: '#e0f2fe', border: '#0ea5e9' },
+      external_api: { background: '#fef3c7', border: '#f59e0b' },
+      notification: { background: '#ffedd5', border: '#f97316' },
+      infrastructure: { background: '#f3e8ff', border: '#a855f7' },
+    }
+
+    // Category display names
+    const categoryNames: Record<string, string> = {
+      iot_device: 'IoT Device',
+      hardware_control: '制御機器',
+      video: 'Video',
+      backend: 'Backend',
+      database: 'Database',
+      ai_ml: 'AI/ML',
+      frontend: 'Frontend',
+      visualization: 'Visualization',
+      external_api: 'External API',
+      notification: 'Notification',
+      infrastructure: 'Infrastructure',
+      protocols: 'Protocols',
+      data_formats: 'Data Formats',
+    }
+
+    // Add nodes for each category with technologies
+    Object.entries(stack).forEach(([category, technologies]) => {
+      if (
+        Array.isArray(technologies) &&
+        technologies.length > 0 &&
+        category !== 'protocols' &&
+        category !== 'data_formats'
+      ) {
+        const style = categoryStyles[category] || {
+          background: '#f3f4f6',
+          border: '#9ca3af',
+        }
+
+        newNodes.push({
+          id: `suggested_${category}`,
+          type: 'default',
+          position: { x: 100, y: yOffset },
+          data: {
+            label: (
+              <div>
+                <div
+                  style={{
+                    fontWeight: 'bold',
+                    marginBottom: '6px',
+                    fontSize: '13px',
+                  }}
+                >
+                  {categoryNames[category] || category}
+                </div>
+                <div style={{ fontSize: '10px', lineHeight: 1.5 }}>
+                  {technologies.join(' / ')}
+                </div>
+              </div>
+            ),
+          },
+          style: {
+            background: style.background,
+            border: `2px solid ${style.border}`,
+            borderRadius: '10px',
+            padding: '12px',
+            minWidth: '200px',
+          },
+        })
+        yOffset += 120
+      }
+    })
+
+    // Add protocols and data formats if present
+    if (stack.protocols && stack.protocols.length > 0) {
+      newNodes.push({
+        id: 'suggested_protocols',
+        type: 'default',
+        position: { x: 400, y: 200 },
+        data: {
+          label: (
+            <div>
+              <div
+                style={{
+                  fontWeight: 'bold',
+                  marginBottom: '4px',
+                  fontSize: '11px',
+                }}
+              >
+                Protocols
+              </div>
+              <div style={{ fontSize: '9px', lineHeight: 1.5 }}>
+                {stack.protocols.join(' / ')}
+              </div>
+            </div>
+          ),
+        },
+        style: {
+          background: '#fef9c3',
+          border: '2px dashed #facc15',
+          borderRadius: '10px',
+          padding: '10px',
+          minWidth: '150px',
+        },
+      })
+    }
+
+    if (stack.data_formats && stack.data_formats.length > 0) {
+      newNodes.push({
+        id: 'suggested_data_formats',
+        type: 'default',
+        position: { x: 400, y: 350 },
+        data: {
+          label: (
+            <div>
+              <div
+                style={{
+                  fontWeight: 'bold',
+                  marginBottom: '4px',
+                  fontSize: '11px',
+                }}
+              >
+                Data Formats
+              </div>
+              <div style={{ fontSize: '9px', lineHeight: 1.5 }}>
+                {stack.data_formats.join(' / ')}
+              </div>
+            </div>
+          ),
+        },
+        style: {
+          background: '#e0f2fe',
+          border: '1px solid #0ea5e9',
+          borderRadius: '8px',
+          padding: '8px',
+          minWidth: '120px',
+        },
+      })
+    }
+
+    return newNodes
+  }, [suggestedStack])
+
+  const suggestedEdges = useMemo(() => {
+    if (!suggestedStack?.stack || suggestedNodes.length === 0) return []
+
+    const newEdges: Edge[] = []
+    const edgeStyle = { stroke: '#667eea', strokeWidth: 2 }
+    const stack = suggestedStack.stack
+
+    // Create logical connections between nodes
+    const nodeIds = suggestedNodes.map((n) => n.id)
+
+    // IoT/Hardware → Backend
+    if (
+      nodeIds.includes('suggested_iot_device') &&
+      nodeIds.includes('suggested_backend')
+    ) {
+      newEdges.push({
+        id: 'se1',
+        source: 'suggested_iot_device',
+        target: 'suggested_backend',
+        animated: true,
+        style: edgeStyle,
+      })
+    }
+
+    if (
+      nodeIds.includes('suggested_hardware_control') &&
+      nodeIds.includes('suggested_backend')
+    ) {
+      newEdges.push({
+        id: 'se2',
+        source: 'suggested_hardware_control',
+        target: 'suggested_backend',
+        animated: false,
+        style: edgeStyle,
+      })
+    }
+
+    // Video → Backend/AI
+    if (
+      nodeIds.includes('suggested_video') &&
+      nodeIds.includes('suggested_backend')
+    ) {
+      newEdges.push({
+        id: 'se3',
+        source: 'suggested_video',
+        target: 'suggested_backend',
+        animated: true,
+        style: edgeStyle,
+      })
+    }
+
+    if (
+      nodeIds.includes('suggested_video') &&
+      nodeIds.includes('suggested_ai_ml')
+    ) {
+      newEdges.push({
+        id: 'se4',
+        source: 'suggested_video',
+        target: 'suggested_ai_ml',
+        animated: false,
+        style: edgeStyle,
+      })
+    }
+
+    // Backend → Database
+    if (
+      nodeIds.includes('suggested_backend') &&
+      nodeIds.includes('suggested_database')
+    ) {
+      newEdges.push({
+        id: 'se5',
+        source: 'suggested_backend',
+        target: 'suggested_database',
+        animated: true,
+        style: edgeStyle,
+      })
+    }
+
+    // Backend → Frontend
+    if (
+      nodeIds.includes('suggested_backend') &&
+      nodeIds.includes('suggested_frontend')
+    ) {
+      newEdges.push({
+        id: 'se6',
+        source: 'suggested_backend',
+        target: 'suggested_frontend',
+        animated: true,
+        style: edgeStyle,
+      })
+    }
+
+    // Frontend → Visualization
+    if (
+      nodeIds.includes('suggested_frontend') &&
+      nodeIds.includes('suggested_visualization')
+    ) {
+      newEdges.push({
+        id: 'se7',
+        source: 'suggested_frontend',
+        target: 'suggested_visualization',
+        animated: false,
+        style: edgeStyle,
+      })
+    }
+
+    // Backend → External API
+    if (
+      nodeIds.includes('suggested_backend') &&
+      nodeIds.includes('suggested_external_api')
+    ) {
+      newEdges.push({
+        id: 'se8',
+        source: 'suggested_backend',
+        target: 'suggested_external_api',
+        animated: false,
+        style: edgeStyle,
+      })
+    }
+
+    // Backend → Notification
+    if (
+      nodeIds.includes('suggested_backend') &&
+      nodeIds.includes('suggested_notification')
+    ) {
+      newEdges.push({
+        id: 'se9',
+        source: 'suggested_backend',
+        target: 'suggested_notification',
+        animated: false,
+        style: edgeStyle,
+      })
+    }
+
+    // Backend → Infrastructure (dashed)
+    if (
+      nodeIds.includes('suggested_backend') &&
+      nodeIds.includes('suggested_infrastructure')
+    ) {
+      newEdges.push({
+        id: 'se10',
+        source: 'suggested_backend',
+        target: 'suggested_infrastructure',
+        animated: false,
+        style: { stroke: '#94a3b8', strokeWidth: 1, strokeDasharray: '5,5' },
+      })
+    }
+
+    return newEdges
+  }, [suggestedStack, suggestedNodes])
+
   // Sample requirements
   const sampleRequirements = [
     'IoTデバイスからのデータを収集し、Webダッシュボードで可視化したい',
@@ -729,7 +993,7 @@ const TechStackDemoSection = () => {
 
   const handleSampleClick = (sample: string) => {
     setRequirements(sample)
-    setSuggestion('')
+    setSuggestedStack(null)
   }
 
   // Generate suggestion using OpenAI API
@@ -740,7 +1004,7 @@ const TechStackDemoSection = () => {
     }
 
     setIsLoading(true)
-    setSuggestion('')
+    setSuggestedStack(null)
 
     try {
       const response = await fetch(
@@ -761,7 +1025,33 @@ const TechStackDemoSection = () => {
 利用可能な技術:
 ${JSON.stringify(techStackData, null, 2)}
 
-要件に基づいて、具体的な技術スタックの組み合わせを提案してください。各カテゴリから適切な技術を選び、なぜその技術を選んだのか理由も説明してください。`,
+要件に基づいて、具体的な技術スタックの組み合わせを提案してください。
+必ず以下のJSON形式で回答してください（それ以外のテキストは含めないでください）：
+
+{
+  "stack": {
+    "iot_device": ["Raspberry Pi", "ESP32", "M5Stack", "Arduino"],
+    "hardware_control": ["PLC", "リレー制御", "モーター制御"],
+    "video": ["RTSP", "WebRTC", "FFmpeg", "OpenCV"],
+    "backend": ["Node.js", "Express", "Fastify", "Next.js API Routes", "NestJS"],
+    "database": ["PostgreSQL", "MySQL", "Redis", "MongoDB"],
+    "ai_ml": ["PyTorch", "TensorFlow", "OpenCV", "Cloud Vision API"],
+    "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vite"],
+    "visualization": ["Chart.js", "React Flow", "D3.js", "Recharts", "Plotly"],
+    "notification": ["Slack Webhook", "Email", "LINE Notify", "Push通知"],
+    "external_api": ["OpenAI API", "Google Maps API", "Weather API"],
+    "infrastructure": ["Vercel", "Docker", "AWS", "GCP", "Firebase"],
+    "protocols": ["HTTPS", "WebSocket", "MQTT", "REST API"],
+    "data_formats": ["JSON", "CSV", "Binary"]
+  }
+}
+
+重要な指示：
+- 各カテゴリから推奨順に技術を複数選んでください
+- 主要カテゴリ（frontend, backend, database, infrastructure）は必ず5-8個以上選択
+- 関連性が高いカテゴリは8-12個選択してください
+- より詳細で具体的な技術構成を提案してください
+- 該当しないカテゴリは空配列[]にしてください`,
               },
               {
                 role: 'user',
@@ -769,7 +1059,7 @@ ${JSON.stringify(techStackData, null, 2)}
               },
             ],
             temperature: 0.7,
-            max_tokens: 1500,
+            max_tokens: 2000,
           }),
         },
       )
@@ -780,7 +1070,15 @@ ${JSON.stringify(techStackData, null, 2)}
 
       const data = await response.json()
       const generatedText = data.choices[0]?.message?.content || ''
-      setSuggestion(generatedText)
+
+      // Extract JSON from response
+      const jsonMatch = generatedText.match(/\{[\s\S]*\}/)
+      if (jsonMatch) {
+        const suggested = JSON.parse(jsonMatch[0])
+        setSuggestedStack(suggested)
+      } else {
+        throw new Error('Invalid response format')
+      }
     } catch (error) {
       console.error('Error generating suggestion:', error)
       alert('提案の生成に失敗しました。もう一度お試しください。')
@@ -794,46 +1092,58 @@ ${JSON.stringify(techStackData, null, 2)}
       <div className="stack-container">
         <p className="intro">Planckunitsが対応可能な技術スタック一覧</p>
 
-        {/* AI提案フォーム（開発環境のみ） */}
-        <div className="suggestion-form">
-          <h3>AI技術スタック提案（開発環境専用）</h3>
-          <textarea
-            value={requirements}
-            onChange={(e) => setRequirements(e.target.value)}
-            placeholder="システムの要件を入力してください（例：IoTデバイスからのデータを収集し、Webダッシュボードで可視化したい）"
-            rows={4}
-            disabled={isLoading}
-          />
+        {/* 技術スタック提案フォーム（開発環境のみ） */}
+        {process.env.NODE_ENV === 'development' && (
+          <div className="suggestion-form">
+            <h3>技術スタック提案</h3>
+            <textarea
+              value={requirements}
+              onChange={(e) => setRequirements(e.target.value)}
+              placeholder="システムの要件を入力してください（例：IoTデバイスからのデータを収集し、Webダッシュボードで可視化したい）"
+              rows={4}
+              disabled={isLoading}
+            />
 
-          <div className="sample-buttons">
-            <span className="sample-label">サンプル：</span>
-            {sampleRequirements.map((sample, index) => (
-              <button
-                key={index}
-                className="sample-button"
-                onClick={() => handleSampleClick(sample)}
-                disabled={isLoading}
-              >
-                {sample}
-              </button>
-            ))}
-          </div>
-
-          <button
-            className="generate-button"
-            onClick={handleGenerateSuggestion}
-            disabled={isLoading}
-          >
-            {isLoading ? '生成中...' : '技術スタックを提案'}
-          </button>
-
-          {suggestion && (
-            <div className="suggestion-result">
-              <h4>提案結果：</h4>
-              <div className="suggestion-content">{suggestion}</div>
+            <div className="sample-buttons">
+              <span className="sample-label">サンプル：</span>
+              {sampleRequirements.map((sample, index) => (
+                <button
+                  key={index}
+                  className="sample-button"
+                  onClick={() => handleSampleClick(sample)}
+                  disabled={isLoading}
+                >
+                  {sample}
+                </button>
+              ))}
             </div>
-          )}
-        </div>
+
+            <button
+              className="generate-button"
+              onClick={handleGenerateSuggestion}
+              disabled={isLoading}
+            >
+              {isLoading ? '生成中...' : '技術スタックを提案'}
+            </button>
+
+            {suggestedStack && suggestedNodes.length > 0 && (
+              <div className="suggestion-flow">
+                <h4>提案された技術スタック：</h4>
+                <div className="suggested-flow-container">
+                  <ReactFlow
+                    nodes={suggestedNodes}
+                    edges={suggestedEdges}
+                    fitView
+                    attributionPosition="bottom-left"
+                  >
+                    <Background />
+                    <Controls />
+                  </ReactFlow>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="flow-container">
           <ReactFlow
@@ -952,25 +1262,23 @@ ${JSON.stringify(techStackData, null, 2)}
           cursor: not-allowed;
         }
 
-        .suggestion-result {
+        .suggestion-flow {
           margin-top: var(--space-6);
-          padding: var(--space-4);
-          background: white;
-          border-radius: var(--radius-sm);
-          border: 1px solid #e2e8f0;
         }
 
-        .suggestion-result h4 {
+        .suggestion-flow h4 {
           font-size: var(--text-lg);
           color: #1e293b;
           margin: 0 0 var(--space-3);
         }
 
-        .suggestion-content {
-          font-size: var(--text-base);
-          line-height: 1.7;
-          color: #334155;
-          white-space: pre-wrap;
+        .suggested-flow-container {
+          width: 100%;
+          height: 600px;
+          border: 2px solid #0ea5e9;
+          border-radius: var(--radius-md);
+          background: white;
+          margin-bottom: var(--space-4);
         }
 
         .flow-container {
