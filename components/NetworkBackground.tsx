@@ -13,7 +13,7 @@ const NetworkBackground: React.FC<NetworkBackgroundProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mousePosRef = useRef({ x: -1000, y: -1000 })
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number | undefined>(undefined)
   const charsGridRef = useRef<string[][]>([])
 
   useEffect(() => {

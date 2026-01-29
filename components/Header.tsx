@@ -13,7 +13,7 @@ const Header = () => (
       header {
         position: sticky;
         top: 0;
-        background: linear-gradient(135deg, rgba(145, 194, 214, 0.95) 0%, rgba(17, 109, 147, 0.95) 100%);
+        background: linear-gradient(135deg, rgba(17, 109, 147, 0.95) 0%, rgba(145, 194, 214, 0.95) 100%);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         z-index: 100;
