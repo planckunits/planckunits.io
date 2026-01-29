@@ -5,10 +5,10 @@ const MissionSection = () => {
   const { t } = useLocale()
 
   const missions = [
-    { id: 1, text: t.mission1, color: '#ff6b6b' },
-    { id: 2, text: t.mission2, color: '#4ecdc4' },
-    { id: 3, text: t.mission3, color: '#ffa500' },
-    { id: 4, text: t.mission4, color: '#a855f7' },
+    { id: 1, text: t.mission1, color: '#3b82f6' },
+    { id: 2, text: t.mission2, color: '#0ea5e9' },
+    { id: 3, text: t.mission3, color: '#06b6d4' },
+    { id: 4, text: t.mission4, color: '#6366f1' },
   ]
 
   return (
