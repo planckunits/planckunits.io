@@ -53,7 +53,7 @@ const locales = {
   takahashiDescription:
     'Web application development, Full-stack development, TypeScript, React, Next.js, Vite, Astro, Node.js, Express, Rust, Ruby on Rails, PostgreSQL, Firebase, Supabase, AWS, Vercel, Docker, Tailwind CSS, WebSocket, MQTT, Vitest, Playwright',
   iwai: 'Masayuki Iwai',
-  iwaiRole: 'Director',
+  iwaiRole: 'Director, Advisor',
   iwaiDescription:
     'Professor at Tokyo Denki University, School of Science and Technology for Future Life, Department of Information Systems and Multimedia Design. Drives technology strategy and R&D at PlanckUnits, leveraging research expertise in IoT, sensing, and ubiquitous computing.',
   companyName: 'Company name',
