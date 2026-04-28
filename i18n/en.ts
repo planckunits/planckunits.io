@@ -52,6 +52,10 @@ const locales = {
   takahashiRole: 'Director, CTO',
   takahashiDescription:
     'Web application development, Full-stack development, TypeScript, React, Next.js, Vite, Astro, Node.js, Express, Rust, Ruby on Rails, PostgreSQL, Firebase, Supabase, AWS, Vercel, Docker, Tailwind CSS, WebSocket, MQTT, Vitest, Playwright',
+  iwai: 'Masayuki Iwai',
+  iwaiRole: 'Director',
+  iwaiDescription:
+    'Professor at Tokyo Denki University, School of Science and Technology for Future Life, Department of Information Systems and Multimedia Design. Drives technology strategy and R&D at PlanckUnits, leveraging research expertise in IoT, sensing, and ubiquitous computing.',
   companyName: 'Company name',
   planckUnits: 'PlanckUnits Inc.',
   CEO: 'Representative Director',
@@ -59,10 +63,10 @@ const locales = {
   established201711: 'November 2017',
   office: 'Office',
   puAddress: '120-0036 東京都足立区千住仲町19-6和光マンション405',
-  buisiness: 'Business',
+  business: 'Business',
   noEmployees: 'Number of Employees',
   noEmployeesConst: '3',
-  buisinessConst: [
+  businessConst: [
     'IoT Development',
     'Web system and application development',
     'Consulting and education',

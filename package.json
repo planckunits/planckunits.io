@@ -21,7 +21,7 @@
     "test": "jest",
     "lint": "oxlint .",
     "test:watch": "jest --watch",
-    "deploy": "next build && touch out/.nojekyll && gh-pages -d out -t"
+    "deploy": "echo 'netlify ci'"
   },
   "dependencies": {
     "next": "^16.1.6",
@@ -34,7 +34,6 @@
     "@types/node": "^25.0.10",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
-    "gh-pages": "^6.3.0",
     "oxlint": "^1.42.0",
     "typescript": "^5.9.3"
   }

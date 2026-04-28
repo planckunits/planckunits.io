@@ -17,8 +17,8 @@ const AboutSection = () => {
       link: officeUrl,
     },
     {
-      label: t.buisiness,
-      value: t.buisinessConst.join(' / '),
+      label: t.business,
+      value: t.businessConst.join(' / '),
     },
     { label: t.noEmployees, value: t.noEmployeesConst },
   ]
@@ -102,13 +102,13 @@ const AboutSection = () => {
         }
 
         .value.link {
-          color: #91C2D6;
+          color: #91c2d6;
           text-decoration: none;
           transition: color 0.2s;
         }
 
         .value.link:hover {
-          color: #116D93;
+          color: #116d93;
           text-decoration: underline;
         }
 
@@ -150,8 +150,8 @@ const AboutSection = () => {
         }
 
         .client-badge:hover {
-          border-color: #91C2D6;
-          color: #91C2D6;
+          border-color: #91c2d6;
+          color: #91c2d6;
           transform: translateY(-1px);
         }
 

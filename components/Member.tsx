@@ -3,12 +3,18 @@ type Props = {
   description: string
   role: string
   url?: string
+  image?: string
 }
 
-const Member = ({ name, role, url, description }: Props) => (
+const Member = ({ name, role, url, image, description }: Props) => (
   <div className="member-card">
     <div className="member-avatar">
-      {name.charAt(0)}
+      {image ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={image} alt={name} />
+      ) : (
+        <span className="member-initial">{name.charAt(0)}</span>
+      )}
     </div>
     <h3>{name}</h3>
     <p className="role">{role}</p>
@@ -40,7 +46,7 @@ const Member = ({ name, role, url, description }: Props) => (
         width: 120px;
         height: 120px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #91C2D6 0%, #116D93 100%);
+        background: linear-gradient(135deg, #91c2d6 0%, #116d93 100%);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -49,6 +55,13 @@ const Member = ({ name, role, url, description }: Props) => (
         font-weight: 700;
         margin: 0 auto var(--space-5);
         box-shadow: 0 4px 12px rgba(125, 191, 217, 0.3);
+        overflow: hidden;
+      }
+
+      .member-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       h3 {

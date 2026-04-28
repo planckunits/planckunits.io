@@ -21,6 +21,12 @@ const MemberSection = () => {
           url="https://elzup.com"
           description={t.takahashiDescription}
         />
+        <Member
+          name={t.iwai}
+          role={t.iwaiRole}
+          url={undefined}
+          description={t.iwaiDescription}
+        />
       </div>
 
       <style jsx>{`

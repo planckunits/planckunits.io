@@ -52,6 +52,10 @@ const locales = {
   takahashiRole: '取締役・CTO',
   takahashiDescription:
     'Webアプリケーション開発、フルスタック開発、TypeScript、React、Next.js、Vite、Astro、Node.js、Express、Rust、Ruby on Rails、PostgreSQL、Firebase、Supabase、AWS、Vercel、Docker、Tailwind CSS、WebSocket、MQTT、Vitest、Playwright',
+  iwai: '岩井 将行',
+  iwaiRole: '役員',
+  iwaiDescription:
+    '東京電機大学未来科学部情報メディア学科 教授。IoT・センシング・ユビキタスコンピューティング領域における研究知見をもとに、PlanckUnitsの技術戦略・R&Dを推進。',
   companyName: '社名',
   planckUnits: '株式会社 PlanckUnits (プランクユニッツ)',
   CEO: '代表取締役',
@@ -59,10 +63,10 @@ const locales = {
   established201711: '2017年11月',
   office: 'オフィス',
   puAddress: '〒120-0036 東京都足立区千住仲町19-6和光マンション405',
-  buisiness: '事業内容',
+  business: '事業内容',
   noEmployees: '従業員数',
   noEmployeesConst: '3人',
-  buisinessConst: [
+  businessConst: [
     'IoT開発',
     'Webシステム・アプリケーション開発',
     'コンサルティング・教育',
