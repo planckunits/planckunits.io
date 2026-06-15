@@ -13,12 +13,14 @@ const MemberSection = () => {
           name={t.nonaka}
           role={t.nonakaRole}
           url={undefined}
+          image="/members/nonaka.jpg"
           description={t.nonakaDescription}
         />
         <Member
           name={t.takahashi}
           role={t.takahashiRole}
           url="https://elzup.com"
+          image="/members/takahashi.jpg"
           description={t.takahashiDescription}
         />
         <Member
